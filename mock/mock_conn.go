@@ -4,9 +4,9 @@ import (
 	"container/list"
 	"sync"
 
-	ic "github.com/ipfs/go-ipfs/p2p/crypto"
-	inet "github.com/ipfs/go-ipfs/p2p/net"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	inet "github.com/ipfs/go-libp2p/p2p/net"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
 	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
 )

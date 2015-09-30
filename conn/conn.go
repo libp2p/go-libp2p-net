@@ -11,11 +11,11 @@ import (
 	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
 	manet "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr-net"
 	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
-	ic "github.com/ipfs/go-ipfs/p2p/crypto"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
-	logging "github.com/ipfs/go-ipfs/vendor/go-log-v1.0.0"
 	u "github.com/ipfs/go-ipfs/util"
-	lgbl "github.com/ipfs/go-ipfs/util/eventlog/loggables"
+	logging "github.com/ipfs/go-ipfs/vendor/go-log-v1.0.0"
+	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
+	lgbl "github.com/ipfs/go-libp2p/util/eventlog/loggables"
 )
 
 var log = logging.Logger("conn")

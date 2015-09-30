@@ -6,9 +6,9 @@ import (
 	"time"
 
 	key "github.com/ipfs/go-ipfs/blocks/key"
-	ic "github.com/ipfs/go-ipfs/p2p/crypto"
-	filter "github.com/ipfs/go-ipfs/p2p/net/filter"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	filter "github.com/ipfs/go-libp2p/p2p/net/filter"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
 	msgio "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-msgio"
 	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"

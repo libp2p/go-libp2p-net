@@ -7,10 +7,10 @@
 package mocknet
 
 import (
-	ic "github.com/ipfs/go-ipfs/p2p/crypto"
-	host "github.com/ipfs/go-ipfs/p2p/host"
-	inet "github.com/ipfs/go-ipfs/p2p/net"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	host "github.com/ipfs/go-libp2p/p2p/host"
+	inet "github.com/ipfs/go-libp2p/p2p/net"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	"io"
 	"time"
 

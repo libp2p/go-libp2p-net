@@ -13,9 +13,9 @@ import (
 	goprocessctx "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/goprocess/context"
 	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
 
-	ic "github.com/ipfs/go-ipfs/p2p/crypto"
-	filter "github.com/ipfs/go-ipfs/p2p/net/filter"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	filter "github.com/ipfs/go-libp2p/p2p/net/filter"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 )
 
 // ConnWrapper is any function that wraps a raw multiaddr connection

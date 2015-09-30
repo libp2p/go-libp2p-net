@@ -11,10 +11,10 @@ import (
 	manet "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr-net"
 	reuseport "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-reuseport"
 	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
-	lgbl "github.com/ipfs/go-ipfs/util/eventlog/loggables"
+	lgbl "github.com/ipfs/go-libp2p/util/eventlog/loggables"
 
-	addrutil "github.com/ipfs/go-ipfs/p2p/net/swarm/addr"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	addrutil "github.com/ipfs/go-libp2p/p2p/net/swarm/addr"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 )
 
 // String returns the string rep of d.

@@ -3,8 +3,8 @@ package net
 import (
 	"io"
 
-	conn "github.com/ipfs/go-ipfs/p2p/net/conn"
-	peer "github.com/ipfs/go-ipfs/p2p/peer"
+	conn "github.com/ipfs/go-libp2p/p2p/net/conn"
+	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
 	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
 	"github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/goprocess"

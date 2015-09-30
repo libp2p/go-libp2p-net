@@ -7,7 +7,7 @@ import (
 
 	process "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/goprocess"
 
-	inet "github.com/ipfs/go-ipfs/p2p/net"
+	inet "github.com/ipfs/go-libp2p/p2p/net"
 )
 
 // stream implements inet.Stream
