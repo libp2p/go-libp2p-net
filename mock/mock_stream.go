@@ -5,7 +5,7 @@ import (
 	"io"
 	"time"
 
-	process "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/goprocess"
+	process "github.com/jbenet/goprocess"
 
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 )

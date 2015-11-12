@@ -8,17 +8,25 @@ import (
 	"testing"
 	"time"
 
-	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
-	travis "github.com/ipfs/go-ipfs/util/testutil/ci/travis"
+	msgio "github.com/jbenet/go-msgio"
+	context "golang.org/x/net/context"
+	travis "util/testutil/ci/travis"
 )
 
+func msgioWrap(c Conn) msgio.ReadWriter {
+	return msgio.NewReadWriter(c)
+}
+
 func testOneSendRecv(t *testing.T, c1, c2 Conn) {
+	mc1 := msgioWrap(c1)
+	mc2 := msgioWrap(c2)
+
 	log.Debugf("testOneSendRecv from %s to %s", c1.LocalPeer(), c2.LocalPeer())
 	m1 := []byte("hello")
-	if err := c1.WriteMsg(m1); err != nil {
+	if err := mc1.WriteMsg(m1); err != nil {
 		t.Fatal(err)
 	}
-	m2, err := c2.ReadMsg()
+	m2, err := mc2.ReadMsg()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -28,11 +36,14 @@ func testOneSendRecv(t *testing.T, c1, c2 Conn) {
 }
 
 func testNotOneSendRecv(t *testing.T, c1, c2 Conn) {
+	mc1 := msgioWrap(c1)
+	mc2 := msgioWrap(c2)
+
 	m1 := []byte("hello")
-	if err := c1.WriteMsg(m1); err == nil {
+	if err := mc1.WriteMsg(m1); err == nil {
 		t.Fatal("write should have failed", err)
 	}
-	_, err := c2.ReadMsg()
+	_, err := mc2.ReadMsg()
 	if err == nil {
 		t.Fatal("read should have failed", err)
 	}
@@ -72,10 +83,13 @@ func TestCloseLeak(t *testing.T) {
 		ctx, cancel := context.WithCancel(context.Background())
 		c1, c2, _, _ := setupSingleConn(t, ctx)
 
+		mc1 := msgioWrap(c1)
+		mc2 := msgioWrap(c2)
+
 		for i := 0; i < num; i++ {
 			b1 := []byte(fmt.Sprintf("beep%d", i))
-			c1.WriteMsg(b1)
-			b2, err := c2.ReadMsg()
+			mc1.WriteMsg(b1)
+			b2, err := mc2.ReadMsg()
 			if err != nil {
 				panic(err)
 			}
@@ -84,8 +98,8 @@ func TestCloseLeak(t *testing.T) {
 			}
 
 			b2 = []byte(fmt.Sprintf("boop%d", i))
-			c2.WriteMsg(b2)
-			b1, err = c1.ReadMsg()
+			mc2.WriteMsg(b2)
+			b1, err = mc1.ReadMsg()
 			if err != nil {
 				panic(err)
 			}
@@ -114,9 +128,11 @@ func TestCloseLeak(t *testing.T) {
 	wg.Wait()
 	// done!
 
-	<-time.After(time.Millisecond * 150)
-	if runtime.NumGoroutine() > 20 {
-		// panic("uncomment me to debug")
-		t.Fatal("leaking goroutines:", runtime.NumGoroutine())
+	time.Sleep(time.Millisecond * 150)
+	ngr := runtime.NumGoroutine()
+	if ngr > 25 {
+		// note, this is really innacurate
+		//panic("uncomment me to debug")
+		t.Fatal("leaking goroutines:", ngr)
 	}
 }

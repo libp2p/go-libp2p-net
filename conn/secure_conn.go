@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
-	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
+	ma "github.com/jbenet/go-multiaddr"
+	context "golang.org/x/net/context"
 
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	secio "github.com/ipfs/go-libp2p/p2p/crypto/secio"
@@ -117,20 +117,6 @@ func (c *secureConn) Read(buf []byte) (int, error) {
 // Write writes data, net.Conn style
 func (c *secureConn) Write(buf []byte) (int, error) {
 	return c.secure.ReadWriter().Write(buf)
-}
-
-func (c *secureConn) NextMsgLen() (int, error) {
-	return c.secure.ReadWriter().NextMsgLen()
-}
-
-// ReadMsg reads data, net.Conn style
-func (c *secureConn) ReadMsg() ([]byte, error) {
-	return c.secure.ReadWriter().ReadMsg()
-}
-
-// WriteMsg writes data, net.Conn style
-func (c *secureConn) WriteMsg(buf []byte) error {
-	return c.secure.ReadWriter().WriteMsg(buf)
 }
 
 // ReleaseMsg releases a buffer

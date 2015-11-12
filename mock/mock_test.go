@@ -9,13 +9,13 @@ import (
 	"testing"
 	"time"
 
-	testutil "github.com/ipfs/go-ipfs/util/testutil"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
+	testutil "util/testutil"
 
-	detectrace "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-detect-race"
-	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
+	detectrace "github.com/jbenet/go-detect-race"
+	context "golang.org/x/net/context"
 )
 
 func randPeer(t *testing.T) peer.ID {

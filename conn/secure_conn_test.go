@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
-	travis "github.com/ipfs/go-ipfs/util/testutil/ci/travis"
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
+	travis "util/testutil/ci/travis"
 
-	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
+	context "golang.org/x/net/context"
 )
 
 func upgradeToSecureConn(t *testing.T, ctx context.Context, sk ic.PrivKey, c Conn) (Conn, error) {
@@ -105,7 +105,7 @@ func TestSecureCancelHandshake(t *testing.T) {
 
 	done := make(chan error)
 	go secureHandshake(t, ctx, p1.PrivKey, c1, done)
-	<-time.After(time.Millisecond)
+	time.Sleep(time.Millisecond)
 	cancel() // cancel ctx
 	go secureHandshake(t, ctx, p2.PrivKey, c2, done)
 
@@ -145,13 +145,16 @@ func TestSecureCloseLeak(t *testing.T) {
 	}
 
 	runPair := func(c1, c2 Conn, num int) {
+		mc1 := msgioWrap(c1)
+		mc2 := msgioWrap(c2)
+
 		log.Debugf("runPair %d", num)
 
 		for i := 0; i < num; i++ {
 			log.Debugf("runPair iteration %d", i)
 			b1 := []byte("beep")
-			c1.WriteMsg(b1)
-			b2, err := c2.ReadMsg()
+			mc1.WriteMsg(b1)
+			b2, err := mc2.ReadMsg()
 			if err != nil {
 				panic(err)
 			}
@@ -160,8 +163,8 @@ func TestSecureCloseLeak(t *testing.T) {
 			}
 
 			b2 = []byte("beep")
-			c2.WriteMsg(b2)
-			b1, err = c1.ReadMsg()
+			mc2.WriteMsg(b2)
+			b1, err = mc1.ReadMsg()
 			if err != nil {
 				panic(err)
 			}
@@ -169,7 +172,7 @@ func TestSecureCloseLeak(t *testing.T) {
 				panic("bytes not equal")
 			}
 
-			<-time.After(time.Microsecond * 5)
+			time.Sleep(time.Microsecond * 5)
 		}
 	}
 
@@ -196,13 +199,14 @@ func TestSecureCloseLeak(t *testing.T) {
 		}(c1, c2)
 	}
 
-	log.Debugf("Waiting...\n")
+	log.Debugf("Waiting...")
 	wg.Wait()
 	// done!
 
-	<-time.After(time.Millisecond * 150)
-	if runtime.NumGoroutine() > 20 {
+	time.Sleep(time.Millisecond * 150)
+	ngr := runtime.NumGoroutine()
+	if ngr > 25 {
 		// panic("uncomment me to debug")
-		t.Fatal("leaking goroutines:", runtime.NumGoroutine())
+		t.Fatal("leaking goroutines:", ngr)
 	}
 }

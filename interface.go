@@ -6,9 +6,9 @@ import (
 	conn "github.com/ipfs/go-libp2p/p2p/net/conn"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
-	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
-	"github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/goprocess"
-	context "github.com/ipfs/go-ipfs/Godeps/_workspace/src/golang.org/x/net/context"
+	ma "github.com/jbenet/go-multiaddr"
+	"github.com/jbenet/goprocess"
+	context "golang.org/x/net/context"
 )
 
 // MessageSizeMax is a soft (recommended) maximum for network messages.

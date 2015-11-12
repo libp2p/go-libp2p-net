@@ -14,7 +14,7 @@ import (
 	"io"
 	"time"
 
-	ma "github.com/ipfs/go-ipfs/Godeps/_workspace/src/github.com/jbenet/go-multiaddr"
+	ma "github.com/jbenet/go-multiaddr"
 )
 
 type Mocknet interface {
