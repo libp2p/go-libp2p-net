@@ -11,11 +11,7 @@ import (
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
 	ma "github.com/jbenet/go-multiaddr"
-	key "github.com/whyrusleeping/go-key"
 )
-
-// Map maps Keys (Peer.IDs) to Connections.
-type Map map[key.Key]Conn
 
 type PeerConn interface {
 	io.Closer
