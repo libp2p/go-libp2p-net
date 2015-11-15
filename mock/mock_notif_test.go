@@ -4,10 +4,10 @@ import (
 	"testing"
 	"time"
 
-	ma "github.com/jbenet/go-multiaddr"
-	context "golang.org/x/net/context"
+	ma "QmaA6aDzeHjZiuqBtgYRz8ZXb1qMCoyMHgyDjBEYQniUKF/go-multiaddr"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
+	context "golang.org/x/net/context"
 )
 
 func TestNotifications(t *testing.T) {

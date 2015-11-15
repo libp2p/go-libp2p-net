@@ -6,15 +6,15 @@ import (
 	"net"
 	"time"
 
-	mpool "github.com/jbenet/go-msgio/mpool"
-	ma "github.com/jbenet/go-multiaddr"
-	manet "github.com/jbenet/go-multiaddr-net"
-	context "golang.org/x/net/context"
+	logging "QmWRypnfEwrgH4k93KEHN5hng7VjKYkWmzDYRuTZeh2Mgh/go-log"
+	ma "QmaA6aDzeHjZiuqBtgYRz8ZXb1qMCoyMHgyDjBEYQniUKF/go-multiaddr"
+	manet "QmanZCL6SXRfafiUEMCBLq2QR171uQSdXQ8YAdHXLd8Cwr/go-multiaddr-net"
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
+	mpool "github.com/jbenet/go-msgio/mpool"
+	context "golang.org/x/net/context"
 	u "util"
 	lgbl "util/eventlog/loggables"
-	logging "QmWRypnfEwrgH4k93KEHN5hng7VjKYkWmzDYRuTZeh2Mgh/go-log"
 )
 
 var log = logging.Logger("conn")

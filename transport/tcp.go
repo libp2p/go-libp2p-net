@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
-	ma "github.com/jbenet/go-multiaddr"
-	manet "github.com/jbenet/go-multiaddr-net"
+	ma "QmaA6aDzeHjZiuqBtgYRz8ZXb1qMCoyMHgyDjBEYQniUKF/go-multiaddr"
+	manet "QmanZCL6SXRfafiUEMCBLq2QR171uQSdXQ8YAdHXLd8Cwr/go-multiaddr-net"
 	reuseport "github.com/jbenet/go-reuseport"
 	context "golang.org/x/net/context"
 	lgbl "util/eventlog/loggables"
