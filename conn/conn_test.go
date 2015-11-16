@@ -10,7 +10,7 @@ import (
 
 	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 	msgio "github.com/jbenet/go-msgio"
-	travis "util/testutil/ci/travis"
+	travis "github.com/ipfs/go-libp2p/testutil/ci/travis"
 )
 
 func msgioWrap(c Conn) msgio.ReadWriter {

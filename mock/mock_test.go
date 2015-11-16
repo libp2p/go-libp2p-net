@@ -12,7 +12,7 @@ import (
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
-	testutil "util/testutil"
+	testutil "github.com/ipfs/go-libp2p/testutil"
 
 	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 	detectrace "github.com/jbenet/go-detect-race"

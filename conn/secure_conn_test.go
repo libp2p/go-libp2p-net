@@ -8,7 +8,7 @@ import (
 	"time"
 
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
-	travis "util/testutil/ci/travis"
+	travis "github.com/ipfs/go-libp2p/testutil/ci/travis"
 
 	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 )

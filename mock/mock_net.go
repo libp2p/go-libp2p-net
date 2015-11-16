@@ -11,7 +11,7 @@ import (
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	p2putil "github.com/ipfs/go-libp2p/p2p/test/util"
-	testutil "util/testutil"
+	testutil "github.com/ipfs/go-libp2p/testutil"
 
 	"QmSir6qPL1tjuxd8LkR8VZq6v625ExAUVs2eCLeqQuaPGU/goprocess"
 	goprocessctx "QmSir6qPL1tjuxd8LkR8VZq6v625ExAUVs2eCLeqQuaPGU/goprocess/context"
