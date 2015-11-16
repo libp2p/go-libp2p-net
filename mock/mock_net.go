@@ -13,7 +13,7 @@ import (
 	p2putil "github.com/ipfs/go-libp2p/p2p/test/util"
 	testutil "util/testutil"
 
-	ma "QmaA6aDzeHjZiuqBtgYRz8ZXb1qMCoyMHgyDjBEYQniUKF/go-multiaddr"
+	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
 	"github.com/jbenet/goprocess"
 	goprocessctx "github.com/jbenet/goprocess/context"
 	context "golang.org/x/net/context"
