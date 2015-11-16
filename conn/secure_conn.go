@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
+	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
-	context "golang.org/x/net/context"
 
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	secio "github.com/ipfs/go-libp2p/p2p/crypto/secio"
