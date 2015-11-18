@@ -6,7 +6,7 @@ import (
 	"strings"
 	"syscall"
 
-	reuseport "github.com/jbenet/go-reuseport"
+	reuseport "gx/QmfDF93E1PjQUqFM4rKyFs85feJdMR9AaVm1axVZ4qdFU1/go-reuseport"
 )
 
 // envReuseport is the env variable name used to turn off reuse port.

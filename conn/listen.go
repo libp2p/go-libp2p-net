@@ -5,11 +5,11 @@ import (
 	"io"
 	"net"
 
-	"QmSir6qPL1tjuxd8LkR8VZq6v625ExAUVs2eCLeqQuaPGU/goprocess"
-	goprocessctx "QmSir6qPL1tjuxd8LkR8VZq6v625ExAUVs2eCLeqQuaPGU/goprocess/context"
-	tec "QmWtLNgjHvFnRHcHUheAMGx4sLYYYGSacNA3eG52ywy2UQ/go-temp-err-catcher"
-	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
-	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
+	ma "gx/QmVUi2ncqnU48zsPgR1rQosDGwY3SSZ1Ndp33j33YjXdsj/go-multiaddr"
+	tec "gx/QmWtLNgjHvFnRHcHUheAMGx4sLYYYGSacNA3eG52ywy2UQ/go-temp-err-catcher"
+	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
+	"gx/QmfDXyLfKNfja2XebomRZjZ2UZCa4BDyFoCymKtzNRVQ5b/goprocess"
+	goprocessctx "gx/QmfDXyLfKNfja2XebomRZjZ2UZCa4BDyFoCymKtzNRVQ5b/goprocess/context"
 
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	filter "github.com/ipfs/go-libp2p/p2p/net/filter"

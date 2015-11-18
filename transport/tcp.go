@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	manet "QmRCPT5WRph8aWXmaT2Rfn6ac98YRUUJnNURpD3hNAWp4f/go-multiaddr-net"
-	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
-	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
-	reuseport "github.com/jbenet/go-reuseport"
 	lgbl "github.com/ipfs/go-libp2p/loggables"
+	manet "gx/QmNT7d1e4Xcp3KcsvxyzUHVtqrR43uypoxLLzdKj6YZga2/go-multiaddr-net"
+	ma "gx/QmVUi2ncqnU48zsPgR1rQosDGwY3SSZ1Ndp33j33YjXdsj/go-multiaddr"
+	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
+	reuseport "gx/QmfDF93E1PjQUqFM4rKyFs85feJdMR9AaVm1axVZ4qdFU1/go-reuseport"
 )
 
 type TcpTransport struct {

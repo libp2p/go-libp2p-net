@@ -10,7 +10,7 @@ import (
 	transport "github.com/ipfs/go-libp2p/p2p/net/transport"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 
-	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
+	ma "gx/QmVUi2ncqnU48zsPgR1rQosDGwY3SSZ1Ndp33j33YjXdsj/go-multiaddr"
 )
 
 type PeerConn interface {

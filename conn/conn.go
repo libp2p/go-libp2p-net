@@ -6,15 +6,15 @@ import (
 	"net"
 	"time"
 
-	manet "QmRCPT5WRph8aWXmaT2Rfn6ac98YRUUJnNURpD3hNAWp4f/go-multiaddr-net"
-	logging "QmWRypnfEwrgH4k93KEHN5hng7VjKYkWmzDYRuTZeh2Mgh/go-log"
-	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
-	u "Qmah3kfjwhVxBM4qGnrqJTqGzrF8svwByyhExPipA2U6LE/go-ipfs-util"
-	ma "QmbWxL1aXQhBjc1XGjGF1f2KGBMCBYSuT2ThA8YXnXJK83/go-multiaddr"
+	lgbl "github.com/ipfs/go-libp2p/loggables"
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
-	mpool "github.com/jbenet/go-msgio/mpool"
-	lgbl "github.com/ipfs/go-libp2p/loggables"
+	manet "gx/QmNT7d1e4Xcp3KcsvxyzUHVtqrR43uypoxLLzdKj6YZga2/go-multiaddr-net"
+	u "gx/QmQA79FfVsUnGkH3TgKDqcDkupfjqLSJ6EYwDuDDZK8nhD/go-ipfs-util"
+	ma "gx/QmVUi2ncqnU48zsPgR1rQosDGwY3SSZ1Ndp33j33YjXdsj/go-multiaddr"
+	mpool "gx/QmXMkWRYvXJ2NTzHMEz5794997kNPGsVX8EhFiXXpoKDZr/go-msgio/mpool"
+	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
+	logging "gx/QmfZZB1aVXWA4kaR5R4e9NifERT366TTCSagkfhmAbYLsu/go-log"
 )
 
 var log = logging.Logger("conn")

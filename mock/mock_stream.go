@@ -5,7 +5,7 @@ import (
 	"io"
 	"time"
 
-	process "QmSir6qPL1tjuxd8LkR8VZq6v625ExAUVs2eCLeqQuaPGU/goprocess"
+	process "gx/QmfDXyLfKNfja2XebomRZjZ2UZCa4BDyFoCymKtzNRVQ5b/goprocess"
 
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 )

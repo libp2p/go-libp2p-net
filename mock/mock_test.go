@@ -14,7 +14,7 @@ import (
 	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
 	testutil "github.com/ipfs/go-libp2p/testutil"
 
-	context "QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
+	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 	detectrace "github.com/jbenet/go-detect-race"
 )
 
