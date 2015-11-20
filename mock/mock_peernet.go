@@ -325,7 +325,7 @@ func (pn *peernet) Connectedness(p peer.ID) inet.Connectedness {
 
 // NewStream returns a new stream to given peer p.
 // If there is no connection to p, attempts to create one.
-func (pn *peernet) NewStream(p peer.ID) (inet.Stream, error) {
+func (pn *peernet) NewStream(ctx context.Context, p peer.ID) (inet.Stream, error) {
 	pn.Lock()
 	cs, found := pn.connsByPeer[p]
 	if !found || len(cs) < 1 {

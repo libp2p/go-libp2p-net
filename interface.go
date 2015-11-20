@@ -67,7 +67,7 @@ type Network interface {
 
 	// NewStream returns a new stream to given peer p.
 	// If there is no connection to p, attempts to create one.
-	NewStream(peer.ID) (Stream, error)
+	NewStream(context.Context, peer.ID) (Stream, error)
 
 	// Listen tells the network to start listening on given multiaddrs.
 	Listen(...ma.Multiaddr) error

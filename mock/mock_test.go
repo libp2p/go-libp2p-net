@@ -14,8 +14,8 @@ import (
 	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
 	testutil "github.com/ipfs/go-libp2p/testutil"
 
-	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 	detectrace "github.com/jbenet/go-detect-race"
+	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
 )
 
 func randPeer(t *testing.T) peer.ID {
@@ -208,21 +208,21 @@ func TestNetworkSetup(t *testing.T) {
 	// p.NetworkConns(n3)
 
 	// can create a stream 2->3, 3->2,
-	if _, err := n2.NewStream(p3); err != nil {
+	if _, err := n2.NewStream(ctx, p3); err != nil {
 		t.Error(err)
 	}
-	if _, err := n3.NewStream(p2); err != nil {
+	if _, err := n3.NewStream(ctx, p2); err != nil {
 		t.Error(err)
 	}
 
 	// but not 1->2 nor 2->2 (not linked), nor 1->1 (not connected)
-	if _, err := n1.NewStream(p2); err == nil {
+	if _, err := n1.NewStream(ctx, p2); err == nil {
 		t.Error("should not be able to connect")
 	}
-	if _, err := n2.NewStream(p2); err == nil {
+	if _, err := n2.NewStream(ctx, p2); err == nil {
 		t.Error("should not be able to connect")
 	}
-	if _, err := n1.NewStream(p1); err == nil {
+	if _, err := n1.NewStream(ctx, p1); err == nil {
 		t.Error("should not be able to connect")
 	}
 
@@ -232,7 +232,7 @@ func TestNetworkSetup(t *testing.T) {
 	}
 
 	// and a stream too
-	if _, err := n1.NewStream(p1); err != nil {
+	if _, err := n1.NewStream(ctx, p1); err != nil {
 		t.Error(err)
 	}
 
@@ -265,13 +265,14 @@ func TestNetworkSetup(t *testing.T) {
 	}
 
 	// and a stream should work now too :)
-	if _, err := n2.NewStream(p3); err != nil {
+	if _, err := n2.NewStream(ctx, p3); err != nil {
 		t.Error(err)
 	}
 
 }
 
 func TestStreams(t *testing.T) {
+	ctx := context.Background()
 
 	mn, err := FullMeshConnected(context.Background(), 3)
 	if err != nil {
@@ -297,7 +298,7 @@ func TestStreams(t *testing.T) {
 		h.SetStreamHandler(protocol.TestingID, handler)
 	}
 
-	s, err := hosts[0].NewStream(protocol.TestingID, hosts[1].ID())
+	s, err := hosts[0].NewStream(ctx, protocol.TestingID, hosts[1].ID())
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -361,6 +362,7 @@ func makePonger(st string) func(inet.Stream) {
 }
 
 func TestStreamsStress(t *testing.T) {
+	ctx := context.Background()
 	nnodes := 100
 	if detectrace.WithRace() {
 		nnodes = 50
@@ -384,7 +386,7 @@ func TestStreamsStress(t *testing.T) {
 			defer wg.Done()
 			from := rand.Intn(len(hosts))
 			to := rand.Intn(len(hosts))
-			s, err := hosts[from].NewStream(protocol.TestingID, hosts[to].ID())
+			s, err := hosts[from].NewStream(ctx, protocol.TestingID, hosts[to].ID())
 			if err != nil {
 				log.Debugf("%d (%s) %d (%s)", from, hosts[from], to, hosts[to])
 				panic(err)
@@ -463,7 +465,8 @@ func TestAdding(t *testing.T) {
 		t.Fatalf("no network for %s", p1)
 	}
 
-	s, err := h1.NewStream(protocol.TestingID, p2)
+	ctx := context.Background()
+	s, err := h1.NewStream(ctx, protocol.TestingID, p2)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -559,7 +562,8 @@ func TestLimitedStreams(t *testing.T) {
 		link.SetOptions(opts)
 	}
 
-	s, err := hosts[0].NewStream(protocol.TestingID, hosts[1].ID())
+	ctx := context.Background()
+	s, err := hosts[0].NewStream(ctx, protocol.TestingID, hosts[1].ID())
 	if err != nil {
 		t.Fatal(err)
 	}
