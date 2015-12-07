@@ -5,11 +5,11 @@ import (
 	"io"
 	"net"
 
-	ma "gx/QmVUi2ncqnU48zsPgR1rQosDGwY3SSZ1Ndp33j33YjXdsj/go-multiaddr"
-	tec "gx/QmWtLNgjHvFnRHcHUheAMGx4sLYYYGSacNA3eG52ywy2UQ/go-temp-err-catcher"
-	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
-	"gx/QmfDXyLfKNfja2XebomRZjZ2UZCa4BDyFoCymKtzNRVQ5b/goprocess"
-	goprocessctx "gx/QmfDXyLfKNfja2XebomRZjZ2UZCa4BDyFoCymKtzNRVQ5b/goprocess/context"
+	ma "github.com/jbenet/go-multiaddr"
+	tec "github.com/jbenet/go-temp-err-catcher"
+	"github.com/jbenet/goprocess"
+	goprocessctx "github.com/jbenet/goprocess/context"
+	context "golang.org/x/net/context"
 
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	filter "github.com/ipfs/go-libp2p/p2p/net/filter"

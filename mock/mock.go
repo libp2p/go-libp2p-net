@@ -1,9 +1,9 @@
 package mocknet
 
 import (
-	logging "gx/QmfZZB1aVXWA4kaR5R4e9NifERT366TTCSagkfhmAbYLsu/go-log"
+	logging "github.com/ipfs/go-log"
 
-	context "gx/QmacZi9WygGK7Me8mH53pypyscHzU386aUZXpr28GZgUct/context"
+	context "golang.org/x/net/context"
 )
 
 var log = logging.Logger("mocknet")
