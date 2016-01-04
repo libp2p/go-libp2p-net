@@ -10,7 +10,7 @@ import (
 	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	travis "github.com/ipfs/go-libp2p/testutil/ci/travis"
 
-	context "golang.org/x/net/context"
+	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
 )
 
 func upgradeToSecureConn(t *testing.T, ctx context.Context, sk ic.PrivKey, c Conn) (Conn, error) {

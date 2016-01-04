@@ -14,8 +14,8 @@ import (
 	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
 	testutil "github.com/ipfs/go-libp2p/testutil"
 
-	detectrace "github.com/jbenet/go-detect-race"
-	context "golang.org/x/net/context"
+	detectrace "gx/ipfs/QmQHGMVmrsgmqUG8ih3puNXUJneSpi13dkcZpzLKkskUkH/go-detect-race"
+	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
 )
 
 func randPeer(t *testing.T) peer.ID {
