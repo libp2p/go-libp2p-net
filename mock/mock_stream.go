@@ -5,9 +5,8 @@ import (
 	"io"
 	"time"
 
-	process "gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess"
-
 	inet "github.com/ipfs/go-libp2p/p2p/net"
+	process "gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess"
 )
 
 // stream implements inet.Stream
