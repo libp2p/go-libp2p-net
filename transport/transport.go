@@ -49,13 +49,3 @@ type TimeoutOpt time.Duration
 type ReuseportOpt bool
 
 var ReusePorts ReuseportOpt = true
-
-func IsTcpMultiaddr(a ma.Multiaddr) bool {
-	p := a.Protocols()
-	return len(p) == 2 && (p[0].Name == "ip4" || p[0].Name == "ip6") && p[1].Name == "tcp"
-}
-
-func IsUtpMultiaddr(a ma.Multiaddr) bool {
-	p := a.Protocols()
-	return len(p) == 3 && p[2].Name == "utp"
-}

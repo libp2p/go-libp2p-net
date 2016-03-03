@@ -7,6 +7,7 @@ import (
 	manet "gx/ipfs/QmQB7mNP3QE7b4zP2MQmsyJDqG5hzYE2CL8k1VyLWky2Ed/go-multiaddr-net"
 	mautp "gx/ipfs/QmQB7mNP3QE7b4zP2MQmsyJDqG5hzYE2CL8k1VyLWky2Ed/go-multiaddr-net/utp"
 	utp "gx/ipfs/QmVs3wq4cN64TFCxANzgSHjGPrjMnRnwPrxU8bqc7YP42s/utp"
+	mafmt "gx/ipfs/QmWLfU4tstw2aNcTykDm44xbSTCYJ9pUJwfhQCKGwckcHx/mafmt"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
 
@@ -22,8 +23,7 @@ func NewUtpTransport() *UtpTransport {
 }
 
 func (d *UtpTransport) Matches(a ma.Multiaddr) bool {
-	p := a.Protocols()
-	return len(p) == 3 && p[2].Name == "utp"
+	return mafmt.UTP.Matches(a)
 }
 
 type UtpSocket struct {
@@ -129,8 +129,7 @@ func (s *UtpSocket) Accept() (Conn, error) {
 }
 
 func (s *UtpSocket) Matches(a ma.Multiaddr) bool {
-	p := a.Protocols()
-	return len(p) == 3 && p[2].Name == "utp"
+	return mafmt.UTP.Matches(a)
 }
 
 func (t *UtpSocket) Close() error {
