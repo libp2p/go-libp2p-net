@@ -22,6 +22,7 @@ func NewDialer(p peer.ID, pk ci.PrivKey, wrap WrapFunc) *Dialer {
 		LocalPeer:  p,
 		PrivateKey: pk,
 		Wrapper:    wrap,
+		fallback:   new(transport.FallbackDialer),
 	}
 }
 
@@ -113,6 +114,10 @@ func (d *Dialer) subDialerForAddr(raddr ma.Multiaddr) transport.Dialer {
 		if pd.Matches(raddr) {
 			return pd
 		}
+	}
+
+	if d.fallback.Matches(raddr) {
+		return d.fallback
 	}
 
 	return nil

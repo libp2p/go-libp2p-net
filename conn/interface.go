@@ -65,6 +65,8 @@ type Dialer struct {
 
 	// Wrapper to wrap the raw connection (optional)
 	Wrapper WrapFunc
+
+	fallback transport.Dialer
 }
 
 // Listener is an object that can accept connections. It matches net.Listener
