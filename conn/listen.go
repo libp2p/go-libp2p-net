@@ -18,6 +18,7 @@ import (
 )
 
 const SecioTag = "/secio"
+const NoEncryptionTag = "/plaintext"
 
 // ConnWrapper is any function that wraps a raw multiaddr connection
 type ConnWrapper func(transport.Conn) transport.Conn
@@ -164,7 +165,11 @@ func WrapTransportListener(ctx context.Context, ml transport.Listener, local pee
 	}
 	l.proc = goprocessctx.WithContextAndTeardown(ctx, l.teardown)
 
-	l.mux.AddHandler(SecioTag, nil)
+	if EncryptConnections {
+		l.mux.AddHandler(SecioTag, nil)
+	} else {
+		l.mux.AddHandler(NoEncryptionTag, nil)
+	}
 
 	log.Debugf("Conn Listener on %s", l.Multiaddr())
 	log.Event(ctx, "swarmListen", l)

@@ -63,7 +63,12 @@ func (d *Dialer) Dial(ctx context.Context, raddr ma.Multiaddr, remote peer.ID) (
 			maconn = d.Wrapper(maconn)
 		}
 
-		err = msmux.SelectProtoOrFail(SecioTag, maconn)
+		cryptoProtoChoice := SecioTag
+		if !EncryptConnections {
+			cryptoProtoChoice = NoEncryptionTag
+		}
+
+		err = msmux.SelectProtoOrFail(cryptoProtoChoice, maconn)
 		if err != nil {
 			errOut = err
 			return
