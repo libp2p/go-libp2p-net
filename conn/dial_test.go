@@ -13,6 +13,7 @@ import (
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	tu "github.com/ipfs/go-libp2p/testutil"
 
+	msmux "gx/ipfs/QmUeEcYJrzAEKdQXjzTxCgNZgc9sRuwharsvzzm5Gd2oGB/go-multistream"
 	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
@@ -318,4 +319,33 @@ func testDialerCloseEarly(t *testing.T, secure bool) {
 func TestDialerCloseEarlySecure(t *testing.T) {
 	// t.Skip("Skipping in favor of another test")
 	testDialerCloseEarly(t, true)
+}
+
+func TestMultistreamHeader(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	p1 := tu.RandPeerNetParamsOrFatal(t)
+
+	l1, err := Listen(ctx, p1.Addr, p1.ID, p1.PrivKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
+
+	go func() {
+		_, _ = l1.Accept()
+	}()
+
+	con, err := net.Dial("tcp", l1.Addr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer con.Close()
+
+	err = msmux.SelectProtoOrFail(SecioTag, con)
+	if err != nil {
+		t.Fatal(err)
+	}
 }
