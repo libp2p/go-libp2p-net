@@ -106,7 +106,8 @@ func (l *listener) Accept() (net.Conn, error) {
 
 		_, _, err = l.mux.Negotiate(maconn)
 		if err != nil {
-			return nil, err
+			log.Info("negotiation of crypto protocol failed: ", err)
+			continue
 		}
 
 		c, err := newSingleConn(ctx, l.local, "", maconn)

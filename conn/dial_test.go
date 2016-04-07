@@ -1,6 +1,7 @@
 package conn
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"net"
@@ -348,4 +349,51 @@ func TestMultistreamHeader(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+}
+
+func TestFailedAccept(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	p1 := tu.RandPeerNetParamsOrFatal(t)
+
+	l1, err := Listen(ctx, p1.Addr, p1.ID, p1.PrivKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
+
+	done := make(chan struct{})
+	go func() {
+		defer close(done)
+		con, err := net.Dial("tcp", l1.Addr().String())
+		if err != nil {
+			t.Error("first dial failed: ", err)
+		}
+
+		// write some garbage
+		con.Write(bytes.Repeat([]byte{255}, 1000))
+
+		con.Close()
+
+		con, err = net.Dial("tcp", l1.Addr().String())
+		if err != nil {
+			t.Error("second dial failed: ", err)
+		}
+		defer con.Close()
+
+		err = msmux.SelectProtoOrFail(SecioTag, con)
+		if err != nil {
+			t.Error("msmux select failed: ", err)
+		}
+	}()
+
+	c, err := l1.Accept()
+	if err != nil {
+		t.Fatal("connections after a failed accept should still work: ", err)
+	}
+
+	c.Close()
+	<-done
 }
