@@ -6,6 +6,7 @@ import (
 	"io"
 	"net"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -448,4 +449,60 @@ func TestHangingAccept(t *testing.T) {
 
 	c.Close()
 	<-done
+}
+
+func TestConcurrentAccept(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	p1 := tu.RandPeerNetParamsOrFatal(t)
+
+	l1, err := Listen(ctx, p1.Addr, p1.ID, p1.PrivKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	n := 300
+	delay := time.Millisecond * 20
+
+	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
+
+	var wg sync.WaitGroup
+	for i := 0; i < n; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			con, err := net.Dial("tcp", l1.Addr().String())
+			if err != nil {
+				log.Error(err)
+				t.Error("first dial failed: ", err)
+				return
+			}
+			// hang this connection
+			defer con.Close()
+
+			time.Sleep(delay)
+			err = msmux.SelectProtoOrFail(SecioTag, con)
+			if err != nil {
+				t.Error(err)
+			}
+		}()
+	}
+
+	before := time.Now()
+	for i := 0; i < n; i++ {
+		c, err := l1.Accept()
+		if err != nil {
+			t.Fatal("connections after a failed accept should still work: ", err)
+		}
+
+		c.Close()
+	}
+
+	limit := delay * time.Duration(n)
+	took := time.Now().Sub(before)
+	if took > limit {
+		t.Fatal("took too long!")
+	}
+	log.Errorf("took: %s (less than %s)", took, limit)
 }
