@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"runtime"
 	"strings"
 	"sync"
 	"testing"
@@ -464,6 +465,9 @@ func TestConcurrentAccept(t *testing.T) {
 
 	n := 300
 	delay := time.Millisecond * 20
+	if runtime.GOOS == "darwin" {
+		n = 100
+	}
 
 	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
 
