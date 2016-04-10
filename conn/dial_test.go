@@ -397,3 +397,55 @@ func TestFailedAccept(t *testing.T) {
 	c.Close()
 	<-done
 }
+
+func TestHangingAccept(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	p1 := tu.RandPeerNetParamsOrFatal(t)
+
+	l1, err := Listen(ctx, p1.Addr, p1.ID, p1.PrivKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
+
+	done := make(chan struct{})
+	go func() {
+		defer close(done)
+		con, err := net.Dial("tcp", l1.Addr().String())
+		if err != nil {
+			t.Error("first dial failed: ", err)
+		}
+		// hang this connection
+		defer con.Close()
+
+		// ensure that the first conn hits first
+		time.Sleep(time.Millisecond * 50)
+
+		con2, err := net.Dial("tcp", l1.Addr().String())
+		if err != nil {
+			t.Error("second dial failed: ", err)
+		}
+		defer con2.Close()
+
+		err = msmux.SelectProtoOrFail(SecioTag, con2)
+		if err != nil {
+			t.Error("msmux select failed: ", err)
+		}
+
+		_, err = con2.Write([]byte("test"))
+		if err != nil {
+			t.Error("con write failed: ", err)
+		}
+	}()
+
+	c, err := l1.Accept()
+	if err != nil {
+		t.Fatal("connections after a failed accept should still work: ", err)
+	}
+
+	c.Close()
+	<-done
+}
