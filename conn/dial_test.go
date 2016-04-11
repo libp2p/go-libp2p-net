@@ -16,10 +16,15 @@ import (
 	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	tu "github.com/ipfs/go-libp2p/testutil"
 
+	grc "gx/ipfs/QmTd4Jgb4nbJq5uR55KJgGLyHWmM3dovS21D1HcwRneSLu/gorocheck"
 	msmux "gx/ipfs/QmUeEcYJrzAEKdQXjzTxCgNZgc9sRuwharsvzzm5Gd2oGB/go-multistream"
 	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
+
+func goroFilter(r *grc.Goroutine) bool {
+	return strings.Contains(r.Function, "go-log.")
+}
 
 func echoListen(ctx context.Context, listener Listener) {
 	for {
@@ -452,6 +457,11 @@ func TestHangingAccept(t *testing.T) {
 	<-done
 }
 
+// This test kicks off N (=300) concurrent dials, which wait d (=20ms) seconds before failing.
+// That wait holds up the handshake (multistream AND crypto), which will happen BEFORE
+// l1.Accept() returns a connection. This test checks that the handshakes all happen
+// concurrently in the listener side, and not sequentially. This ensures that a hanging dial
+// will not block the listener from accepting other dials concurrently.
 func TestConcurrentAccept(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
@@ -509,4 +519,132 @@ func TestConcurrentAccept(t *testing.T) {
 		t.Fatal("took too long!")
 	}
 	log.Errorf("took: %s (less than %s)", took, limit)
+	l1.Close()
+	wg.Wait()
+	cancel()
+
+	time.Sleep(time.Millisecond * 100)
+
+	err = grc.CheckForLeaks(goroFilter)
+	if err != nil {
+		panic(err)
+		t.Fatal(err)
+	}
+}
+
+func TestConnectionTimeouts(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	old := NegotiateReadTimeout
+	NegotiateReadTimeout = time.Second * 5
+	defer func() { NegotiateReadTimeout = old }()
+
+	p1 := tu.RandPeerNetParamsOrFatal(t)
+
+	l1, err := Listen(ctx, p1.Addr, p1.ID, p1.PrivKey)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	n := 100
+	if runtime.GOOS == "darwin" {
+		n = 50
+	}
+
+	p1.Addr = l1.Multiaddr() // Addr has been determined by kernel.
+
+	var wg sync.WaitGroup
+	for i := 0; i < n; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			con, err := net.Dial("tcp", l1.Addr().String())
+			if err != nil {
+				log.Error(err)
+				t.Error("first dial failed: ", err)
+				return
+			}
+			defer con.Close()
+
+			// hang this connection until timeout
+			io.ReadFull(con, make([]byte, 1000))
+		}()
+	}
+
+	// wait to make sure the hanging dials have started
+	time.Sleep(time.Millisecond * 50)
+
+	good_n := 20
+	for i := 0; i < good_n; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			con, err := net.Dial("tcp", l1.Addr().String())
+			if err != nil {
+				log.Error(err)
+				t.Error("first dial failed: ", err)
+				return
+			}
+			defer con.Close()
+
+			// dial these ones through
+			err = msmux.SelectProtoOrFail(SecioTag, con)
+			if err != nil {
+				t.Error(err)
+			}
+		}()
+	}
+
+	before := time.Now()
+	for i := 0; i < good_n; i++ {
+		c, err := l1.Accept()
+		if err != nil {
+			t.Fatal("connections during hung dials should still work: ", err)
+		}
+
+		c.Close()
+	}
+
+	took := time.Now().Sub(before)
+
+	if took > time.Second*5 {
+		t.Fatal("hanging dials shouldnt block good dials")
+	}
+
+	wg.Wait()
+
+	go func() {
+		con, err := net.Dial("tcp", l1.Addr().String())
+		if err != nil {
+			log.Error(err)
+			t.Error("first dial failed: ", err)
+			return
+		}
+		defer con.Close()
+
+		// dial these ones through
+		err = msmux.SelectProtoOrFail(SecioTag, con)
+		if err != nil {
+			t.Error(err)
+		}
+	}()
+
+	// make sure we can dial in still after a bunch of timeouts
+	con, err := l1.Accept()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	con.Close()
+	l1.Close()
+	cancel()
+
+	time.Sleep(time.Millisecond * 100)
+
+	err = grc.CheckForLeaks(goroFilter)
+	if err != nil {
+		panic(err)
+		t.Fatal(err)
+	}
 }

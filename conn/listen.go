@@ -19,11 +19,15 @@ import (
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
 
-const SecioTag = "/secio/1.0.0"
-const NoEncryptionTag = "/plaintext/1.0.0"
+const (
+	SecioTag        = "/secio/1.0.0"
+	NoEncryptionTag = "/plaintext/1.0.0"
+)
 
-const connAcceptBuffer = 32
-const NegotiateReadTimeout = time.Second * 20
+var (
+	connAcceptBuffer     = 32
+	NegotiateReadTimeout = time.Second * 60
+)
 
 // ConnWrapper is any function that wraps a raw multiaddr connection
 type ConnWrapper func(transport.Conn) transport.Conn
