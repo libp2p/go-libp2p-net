@@ -6,13 +6,13 @@ import (
 	"net"
 	"time"
 
-	lgbl "github.com/ipfs/go-libp2p/loggables"
-	ic "github.com/ipfs/go-libp2p/p2p/crypto"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	mpool "gx/ipfs/QmRQhVisS8dmPbjBUthVkenn81pBxrx1GxE281csJhm2vL/go-msgio/mpool"
+	lgbl "gx/ipfs/QmSyBhZt2upyQ3NJmTpab1pX6hesA59vcYTGmgoDorZZbw/go-libp2p-loggables"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
 	manet "gx/ipfs/QmYVqhVfbK4BKvbW88Lhm26b3ud14sTBvcm1H7uWUx1Fkp/go-multiaddr-net"
 	u "gx/ipfs/QmZNVWh8LLjAavuQ2JXuFmuYH3C11xo988vSgp7UQrTRj1/go-ipfs-util"
 	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
+	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 	logging "gx/ipfs/Qmazh5oNUVsDZTs2g59rq8aYQqwpss8tcUWQzor5sCCEuH/go-log"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )

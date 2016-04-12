@@ -11,10 +11,10 @@ import (
 	"testing"
 	"time"
 
-	ic "github.com/ipfs/go-libp2p/p2p/crypto"
-	transport "github.com/ipfs/go-libp2p/p2p/net/transport"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	tu "github.com/ipfs/go-libp2p/testutil"
+	transport "gx/ipfs/QmR4HhZm1fL8epXz8661Ru8ks5Y1Uk2u51quAWaCTD1zHg/go-libp2p-transport"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 
 	grc "gx/ipfs/QmTd4Jgb4nbJq5uR55KJgGLyHWmM3dovS21D1HcwRneSLu/gorocheck"
 	msmux "gx/ipfs/QmUeEcYJrzAEKdQXjzTxCgNZgc9sRuwharsvzzm5Gd2oGB/go-multistream"

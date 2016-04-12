@@ -5,14 +5,14 @@ import (
 	"math/rand"
 	"strings"
 
-	lgbl "github.com/ipfs/go-libp2p/loggables"
-	ci "github.com/ipfs/go-libp2p/p2p/crypto"
 	addrutil "github.com/ipfs/go-libp2p/p2p/net/swarm/addr"
-	transport "github.com/ipfs/go-libp2p/p2p/net/transport"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
+	transport "gx/ipfs/QmR4HhZm1fL8epXz8661Ru8ks5Y1Uk2u51quAWaCTD1zHg/go-libp2p-transport"
+	lgbl "gx/ipfs/QmSyBhZt2upyQ3NJmTpab1pX6hesA59vcYTGmgoDorZZbw/go-libp2p-loggables"
 	msmux "gx/ipfs/QmUeEcYJrzAEKdQXjzTxCgNZgc9sRuwharsvzzm5Gd2oGB/go-multistream"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
 	manet "gx/ipfs/QmYVqhVfbK4BKvbW88Lhm26b3ud14sTBvcm1H7uWUx1Fkp/go-multiaddr-net"
 	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
+	ci "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
 

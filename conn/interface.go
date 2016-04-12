@@ -5,11 +5,10 @@ import (
 	"net"
 	"time"
 
-	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	filter "github.com/ipfs/go-libp2p/p2p/net/filter"
-	transport "github.com/ipfs/go-libp2p/p2p/net/transport"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
-
+	transport "gx/ipfs/QmR4HhZm1fL8epXz8661Ru8ks5Y1Uk2u51quAWaCTD1zHg/go-libp2p-transport"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
 

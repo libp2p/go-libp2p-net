@@ -5,13 +5,13 @@ import (
 	"sort"
 	"sync"
 
-	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	host "github.com/ipfs/go-libp2p/p2p/host"
 	bhost "github.com/ipfs/go-libp2p/p2p/host/basic"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
 	p2putil "github.com/ipfs/go-libp2p/p2p/test/util"
 	testutil "github.com/ipfs/go-libp2p/testutil"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 
 	"gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess"
 	goprocessctx "gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess/context"

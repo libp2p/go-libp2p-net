@@ -4,11 +4,10 @@ import (
 	"container/list"
 	"sync"
 
-	ic "github.com/ipfs/go-libp2p/p2p/crypto"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
-	peer "github.com/ipfs/go-libp2p/p2p/peer"
-
 	process "gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess"
+	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
 )
 
