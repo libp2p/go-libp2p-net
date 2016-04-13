@@ -2,7 +2,6 @@ package filter
 
 import (
 	"net"
-	"strings"
 	"sync"
 
 	manet "gx/ipfs/QmYVqhVfbK4BKvbW88Lhm26b3ud14sTBvcm1H7uWUx1Fkp/go-multiaddr-net"
@@ -27,18 +26,24 @@ func (fs *Filters) AddDialFilter(f *net.IPNet) {
 }
 
 func (f *Filters) AddrBlocked(a ma.Multiaddr) bool {
-	_, addr, err := manet.DialArgs(a)
+	maddr := ma.Split(a)
+	if len(maddr) == 0 {
+		return false
+	}
+	netaddr, err := manet.ToNetAddr(maddr[0])
 	if err != nil {
 		// if we cant parse it, its probably not blocked
 		return false
 	}
+	netip := net.ParseIP(netaddr.String())
+	if netip == nil {
+		return false
+	}
 
-	ipstr := strings.Split(addr, ":")[0]
-	ip := net.ParseIP(ipstr)
 	f.mu.RLock()
 	defer f.mu.RUnlock()
 	for _, ft := range f.filters {
-		if ft.Contains(ip) {
+		if ft.Contains(netip) {
 			return true
 		}
 	}
