@@ -6,8 +6,8 @@ import (
 	"sync"
 	"time"
 
+	peer "github.com/ipfs/go-libp2p-peer"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
-	peer "gx/ipfs/QmZwZjMVGss5rqYsJVGy18gNbkTJffFyq2x1uJ4e4p3ZAt/go-libp2p-peer"
 )
 
 // link implements mocknet.Link

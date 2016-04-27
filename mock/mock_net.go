@@ -5,18 +5,18 @@ import (
 	"sort"
 	"sync"
 
+	ic "github.com/ipfs/go-libp2p-crypto"
+	peer "github.com/ipfs/go-libp2p-peer"
 	host "github.com/ipfs/go-libp2p/p2p/host"
 	bhost "github.com/ipfs/go-libp2p/p2p/host/basic"
 	inet "github.com/ipfs/go-libp2p/p2p/net"
 	p2putil "github.com/ipfs/go-libp2p/p2p/test/util"
 	testutil "github.com/ipfs/go-libp2p/testutil"
-	ic "gx/ipfs/QmUEUu1CM8bxBJxc3ZLojAi8evhTr4byQogWstABet79oY/go-libp2p-crypto"
-	peer "gx/ipfs/QmZwZjMVGss5rqYsJVGy18gNbkTJffFyq2x1uJ4e4p3ZAt/go-libp2p-peer"
 
-	"gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess"
-	goprocessctx "gx/ipfs/QmQopLATEYMNg7dVqZRNDfeE2S1yKy8zrRh5xnYiuqeZBn/goprocess/context"
-	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
-	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
+	ma "github.com/jbenet/go-multiaddr"
+	"github.com/jbenet/goprocess"
+	goprocessctx "github.com/jbenet/goprocess/context"
+	context "golang.org/x/net/context"
 )
 
 // mocknet implements mocknet.Mocknet
