@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strings"
+	"time"
 
 	addrutil "github.com/ipfs/go-libp2p/p2p/net/swarm/addr"
 	transport "gx/ipfs/QmRHqYZs3Diy8YC3bW16zvs8VDDwS2ARKBuKwALxEMqibc/go-libp2p-transport"
@@ -68,11 +69,15 @@ func (d *Dialer) Dial(ctx context.Context, raddr ma.Multiaddr, remote peer.ID) (
 			cryptoProtoChoice = NoEncryptionTag
 		}
 
+		maconn.SetReadDeadline(time.Now().Add(NegotiateReadTimeout))
+
 		err = msmux.SelectProtoOrFail(cryptoProtoChoice, maconn)
 		if err != nil {
 			errOut = err
 			return
 		}
+
+		maconn.SetReadDeadline(time.Time{})
 
 		c, err := newSingleConn(ctx, d.LocalPeer, remote, maconn)
 		if err != nil {
