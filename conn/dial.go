@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strings"
+	"time"
 
 	ci "github.com/ipfs/go-libp2p-crypto"
 	lgbl "github.com/ipfs/go-libp2p-loggables"
@@ -68,11 +69,15 @@ func (d *Dialer) Dial(ctx context.Context, raddr ma.Multiaddr, remote peer.ID) (
 			cryptoProtoChoice = NoEncryptionTag
 		}
 
+		maconn.SetReadDeadline(time.Now().Add(NegotiateReadTimeout))
+
 		err = msmux.SelectProtoOrFail(cryptoProtoChoice, maconn)
 		if err != nil {
 			errOut = err
 			return
 		}
+
+		maconn.SetReadDeadline(time.Time{})
 
 		c, err := newSingleConn(ctx, d.LocalPeer, remote, maconn)
 		if err != nil {
