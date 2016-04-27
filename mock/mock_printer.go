@@ -5,7 +5,7 @@ import (
 	"io"
 
 	inet "github.com/ipfs/go-libp2p/p2p/net"
-	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	peer "gx/ipfs/QmZwZjMVGss5rqYsJVGy18gNbkTJffFyq2x1uJ4e4p3ZAt/go-libp2p-peer"
 )
 
 // separate object so our interfaces are separate :)

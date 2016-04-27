@@ -5,11 +5,11 @@ import (
 	"net"
 	"time"
 
-	peer "gx/ipfs/QmY1xNhBfF9xA1pmD8yejyQAyd77K68qNN6JPM1CN2eiRu/go-libp2p-peer"
+	secio "gx/ipfs/QmPKuU1ohMDaJRJHmatXewCqjZp5wKrD3CK6m9TnCK6XBe/go-libp2p-secio"
+	ic "gx/ipfs/QmUEUu1CM8bxBJxc3ZLojAi8evhTr4byQogWstABet79oY/go-libp2p-crypto"
+	peer "gx/ipfs/QmZwZjMVGss5rqYsJVGy18gNbkTJffFyq2x1uJ4e4p3ZAt/go-libp2p-peer"
 	context "gx/ipfs/QmZy2y8t9zQH2a1b8q2ZSLKp17ATuJoCNxxyMFG5qFExpt/go-net/context"
-	ic "gx/ipfs/QmaP38GJApheTr84f8R89vsT7oJLQw1AeCz4HqrQgv2njB/go-libp2p-crypto"
 	ma "gx/ipfs/QmcobAGsCjYt5DXoq9et9L8yR8er7o7Cu3DTvpaq12jYSz/go-multiaddr"
-	secio "gx/ipfs/QmeBhrdD3K5aMCubZMwhAbcCuHbWjTvVbhQX73kFx2qQfs/go-libp2p-secio"
 )
 
 // secureConn wraps another Conn object with an encrypted channel.
