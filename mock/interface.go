@@ -7,13 +7,15 @@
 package mocknet
 
 import (
-	ic "github.com/ipfs/go-libp2p-crypto"
-	peer "github.com/ipfs/go-libp2p-peer"
-	host "github.com/ipfs/go-libp2p/p2p/host"
-	inet "github.com/ipfs/go-libp2p/p2p/net"
 	"io"
 	"time"
 
+	host "github.com/ipfs/go-libp2p/p2p/host"
+	inet "github.com/ipfs/go-libp2p/p2p/net"
+
+	ic "github.com/ipfs/go-libp2p-crypto"
+	peer "github.com/ipfs/go-libp2p-peer"
+	pstore "github.com/ipfs/go-libp2p-peerstore"
 	ma "github.com/jbenet/go-multiaddr"
 )
 
@@ -25,7 +27,7 @@ type Mocknet interface {
 	// AddPeer adds an existing peer. we need both a privkey and addr.
 	// ID is derived from PrivKey
 	AddPeer(ic.PrivKey, ma.Multiaddr) (host.Host, error)
-	AddPeerWithPeerstore(peer.ID, peer.Peerstore) (host.Host, error)
+	AddPeerWithPeerstore(peer.ID, pstore.Peerstore) (host.Host, error)
 
 	// retrieve things (with randomized iteration order)
 	Peers() []peer.ID

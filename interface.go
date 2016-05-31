@@ -4,6 +4,7 @@ import (
 	"io"
 
 	peer "github.com/ipfs/go-libp2p-peer"
+	pstore "github.com/ipfs/go-libp2p-peerstore"
 	conn "github.com/ipfs/go-libp2p/p2p/net/conn"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
@@ -91,7 +92,7 @@ type Dialer interface {
 	// Peerstore returns the internal peerstore
 	// This is useful to tell the dialer about a new address for a peer.
 	// Or use one of the public keys found out over the network.
-	Peerstore() peer.Peerstore
+	Peerstore() pstore.Peerstore
 
 	// LocalPeer returns the local peer associated with this network
 	LocalPeer() peer.ID
