@@ -514,7 +514,7 @@ func TestConcurrentAccept(t *testing.T) {
 	}
 
 	limit := delay * time.Duration(n)
-	took := time.Now().Sub(before)
+	took := time.Since(before)
 	if took > limit {
 		t.Fatal("took too long!")
 	}
@@ -606,7 +606,7 @@ func TestConnectionTimeouts(t *testing.T) {
 		c.Close()
 	}
 
-	took := time.Now().Sub(before)
+	took := time.Since(before)
 
 	if took > time.Second*5 {
 		t.Fatal("hanging dials shouldnt block good dials")

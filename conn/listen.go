@@ -93,7 +93,7 @@ func (l *listener) Accept() (net.Conn, error) {
 			return nil, err
 		}
 
-		if l.privk == nil || EncryptConnections == false {
+		if l.privk == nil || !EncryptConnections {
 			log.Warning("listener %s listening INSECURELY!", l)
 			return c, nil
 		}
