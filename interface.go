@@ -26,6 +26,9 @@ type Stream interface {
 	io.Writer
 	io.Closer
 
+	Protocol() string
+	SetProtocol(string)
+
 	// Conn returns the connection this stream is part of.
 	Conn() Conn
 }

@@ -16,6 +16,8 @@ type stream struct {
 	conn      *conn
 	toDeliver chan *transportObject
 	proc      process.Process
+
+	protocol string
 }
 
 type transportObject struct {
@@ -46,6 +48,14 @@ func (s *stream) Write(p []byte) (n int, err error) {
 	case s.toDeliver <- &transportObject{msg: p, arrivalTime: t}:
 	}
 	return len(p), nil
+}
+
+func (s *stream) Protocol() string {
+	return s.protocol
+}
+
+func (s *stream) SetProtocol(proto string) {
+	s.protocol = proto
 }
 
 func (s *stream) Close() error {

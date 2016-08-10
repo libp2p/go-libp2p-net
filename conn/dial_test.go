@@ -23,7 +23,7 @@ import (
 )
 
 func goroFilter(r *grc.Goroutine) bool {
-	return strings.Contains(r.Function, "go-log.")
+	return strings.Contains(r.Function, "go-log.") || strings.Contains(r.Stack[0], "testing.(*T).Run")
 }
 
 func echoListen(ctx context.Context, listener Listener) {
