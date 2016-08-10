@@ -10,8 +10,8 @@ import (
 	"io"
 	"time"
 
-	host "github.com/ipfs/go-libp2p/p2p/host"
-	inet "github.com/ipfs/go-libp2p/p2p/net"
+	host "github.com/libp2p/go-libp2p/p2p/host"
+	inet "github.com/libp2p/go-libp2p/p2p/net"
 
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"

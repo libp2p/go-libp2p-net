@@ -10,9 +10,9 @@ import (
 	"time"
 
 	peer "github.com/ipfs/go-libp2p-peer"
-	inet "github.com/ipfs/go-libp2p/p2p/net"
-	protocol "github.com/ipfs/go-libp2p/p2p/protocol"
-	testutil "github.com/ipfs/go-libp2p/testutil"
+	inet "github.com/libp2p/go-libp2p/p2p/net"
+	protocol "github.com/libp2p/go-libp2p/p2p/protocol"
+	testutil "github.com/libp2p/go-libp2p/testutil"
 
 	detectrace "github.com/jbenet/go-detect-race"
 	context "golang.org/x/net/context"

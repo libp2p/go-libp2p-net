@@ -5,11 +5,11 @@ import (
 	"sort"
 	"sync"
 
-	host "github.com/ipfs/go-libp2p/p2p/host"
-	bhost "github.com/ipfs/go-libp2p/p2p/host/basic"
-	inet "github.com/ipfs/go-libp2p/p2p/net"
-	p2putil "github.com/ipfs/go-libp2p/p2p/test/util"
-	testutil "github.com/ipfs/go-libp2p/testutil"
+	host "github.com/libp2p/go-libp2p/p2p/host"
+	bhost "github.com/libp2p/go-libp2p/p2p/host/basic"
+	inet "github.com/libp2p/go-libp2p/p2p/net"
+	p2putil "github.com/libp2p/go-libp2p/p2p/test/util"
+	testutil "github.com/libp2p/go-libp2p/testutil"
 
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"

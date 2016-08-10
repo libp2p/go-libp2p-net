@@ -10,9 +10,9 @@ import (
 	lgbl "github.com/ipfs/go-libp2p-loggables"
 	peer "github.com/ipfs/go-libp2p-peer"
 	transport "github.com/ipfs/go-libp2p-transport"
-	addrutil "github.com/ipfs/go-libp2p/p2p/net/swarm/addr"
 	ma "github.com/jbenet/go-multiaddr"
 	manet "github.com/jbenet/go-multiaddr-net"
+	addrutil "github.com/libp2p/go-libp2p/p2p/net/swarm/addr"
 	msmux "github.com/whyrusleeping/go-multistream"
 	context "golang.org/x/net/context"
 )

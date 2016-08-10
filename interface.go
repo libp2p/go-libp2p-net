@@ -5,9 +5,9 @@ import (
 
 	peer "github.com/ipfs/go-libp2p-peer"
 	pstore "github.com/ipfs/go-libp2p-peerstore"
-	conn "github.com/ipfs/go-libp2p/p2p/net/conn"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
+	conn "github.com/libp2p/go-libp2p/p2p/net/conn"
 	context "golang.org/x/net/context"
 )
 

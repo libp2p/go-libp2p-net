@@ -8,7 +8,7 @@ import (
 	"time"
 
 	ic "github.com/ipfs/go-libp2p-crypto"
-	travis "github.com/ipfs/go-libp2p/testutil/ci/travis"
+	travis "github.com/libp2p/go-libp2p/testutil/ci/travis"
 
 	context "golang.org/x/net/context"
 )

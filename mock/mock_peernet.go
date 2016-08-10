@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"sync"
 
-	inet "github.com/ipfs/go-libp2p/p2p/net"
+	inet "github.com/libp2p/go-libp2p/p2p/net"
 
 	peer "github.com/ipfs/go-libp2p-peer"
 	pstore "github.com/ipfs/go-libp2p-peerstore"

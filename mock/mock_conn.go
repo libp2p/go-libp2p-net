@@ -6,9 +6,9 @@ import (
 
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
-	inet "github.com/ipfs/go-libp2p/p2p/net"
 	ma "github.com/jbenet/go-multiaddr"
 	process "github.com/jbenet/goprocess"
+	inet "github.com/libp2p/go-libp2p/p2p/net"
 )
 
 // conn represents one side's perspective of a

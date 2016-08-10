@@ -14,7 +14,7 @@ import (
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
 	transport "github.com/ipfs/go-libp2p-transport"
-	tu "github.com/ipfs/go-libp2p/testutil"
+	tu "github.com/libp2p/go-libp2p/testutil"
 
 	ma "github.com/jbenet/go-multiaddr"
 	msmux "github.com/whyrusleeping/go-multistream"
