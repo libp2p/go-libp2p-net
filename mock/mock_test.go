@@ -298,7 +298,7 @@ func TestStreams(t *testing.T) {
 		h.SetStreamHandler(protocol.TestingID, handler)
 	}
 
-	s, err := hosts[0].NewStream(ctx, protocol.TestingID, hosts[1].ID())
+	s, err := hosts[0].NewStream(ctx, hosts[1].ID(), protocol.TestingID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -386,7 +386,7 @@ func TestStreamsStress(t *testing.T) {
 			defer wg.Done()
 			from := rand.Intn(len(hosts))
 			to := rand.Intn(len(hosts))
-			s, err := hosts[from].NewStream(ctx, protocol.TestingID, hosts[to].ID())
+			s, err := hosts[from].NewStream(ctx, hosts[to].ID(), protocol.TestingID)
 			if err != nil {
 				log.Debugf("%d (%s) %d (%s)", from, hosts[from], to, hosts[to])
 				panic(err)
@@ -466,7 +466,7 @@ func TestAdding(t *testing.T) {
 	}
 
 	ctx := context.Background()
-	s, err := h1.NewStream(ctx, protocol.TestingID, p2)
+	s, err := h1.NewStream(ctx, p2, protocol.TestingID)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -563,7 +563,7 @@ func TestLimitedStreams(t *testing.T) {
 	}
 
 	ctx := context.Background()
-	s, err := hosts[0].NewStream(ctx, protocol.TestingID, hosts[1].ID())
+	s, err := hosts[0].NewStream(ctx, hosts[1].ID(), protocol.TestingID)
 	if err != nil {
 		t.Fatal(err)
 	}
