@@ -7,6 +7,7 @@ import (
 
 	process "github.com/jbenet/goprocess"
 	inet "github.com/libp2p/go-libp2p/p2p/net"
+	protocol "github.com/libp2p/go-libp2p/p2p/protocol"
 )
 
 // stream implements inet.Stream
@@ -17,7 +18,7 @@ type stream struct {
 	toDeliver chan *transportObject
 	proc      process.Process
 
-	protocol string
+	protocol protocol.ID
 }
 
 type transportObject struct {
@@ -50,11 +51,11 @@ func (s *stream) Write(p []byte) (n int, err error) {
 	return len(p), nil
 }
 
-func (s *stream) Protocol() string {
+func (s *stream) Protocol() protocol.ID {
 	return s.protocol
 }
 
-func (s *stream) SetProtocol(proto string) {
+func (s *stream) SetProtocol(proto protocol.ID) {
 	s.protocol = proto
 }
 

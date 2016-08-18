@@ -8,6 +8,7 @@ import (
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
 	conn "github.com/libp2p/go-libp2p/p2p/net/conn"
+	protocol "github.com/libp2p/go-libp2p/p2p/protocol"
 	context "golang.org/x/net/context"
 )
 
@@ -26,8 +27,8 @@ type Stream interface {
 	io.Writer
 	io.Closer
 
-	Protocol() string
-	SetProtocol(string)
+	Protocol() protocol.ID
+	SetProtocol(protocol.ID)
 
 	// Conn returns the connection this stream is part of.
 	Conn() Conn
