@@ -259,8 +259,8 @@ func testDialerCloseEarly(t *testing.T, secure bool) {
 
 	// lol nesting
 	d2 := &Dialer{
-		LocalPeer: p2.ID,
-		// PrivateKey: key2, -- dont give it key. we'll just close the conn.
+		LocalPeer:  p2.ID,
+		PrivateKey: p2.PrivKey, //-- dont give it key. we'll just close the conn.
 	}
 	d2.AddDialer(dialer(t, p2.Addr))
 
@@ -527,7 +527,6 @@ func TestConcurrentAccept(t *testing.T) {
 
 	err = grc.CheckForLeaks(goroFilter)
 	if err != nil {
-		panic(err)
 		t.Fatal(err)
 	}
 }
@@ -644,7 +643,6 @@ func TestConnectionTimeouts(t *testing.T) {
 
 	err = grc.CheckForLeaks(goroFilter)
 	if err != nil {
-		panic(err)
 		t.Fatal(err)
 	}
 }

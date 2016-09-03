@@ -65,7 +65,7 @@ func (d *Dialer) Dial(ctx context.Context, raddr ma.Multiaddr, remote peer.ID) (
 		}
 
 		cryptoProtoChoice := SecioTag
-		if !EncryptConnections {
+		if !EncryptConnections || d.PrivateKey == nil {
 			cryptoProtoChoice = NoEncryptionTag
 		}
 

@@ -211,7 +211,7 @@ func WrapTransportListener(ctx context.Context, ml transport.Listener, local pee
 		return false
 	}
 
-	if EncryptConnections {
+	if EncryptConnections && sk != nil {
 		l.mux.AddHandler(SecioTag, nil)
 	} else {
 		l.mux.AddHandler(NoEncryptionTag, nil)
