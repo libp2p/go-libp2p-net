@@ -152,7 +152,7 @@ func (d *Dialer) rawConnDial(ctx context.Context, raddr ma.Multiaddr, remote pee
 		return nil, fmt.Errorf("no dialer for %s", raddr)
 	}
 
-	return sd.Dial(raddr)
+	return sd.DialContext(ctx, raddr)
 }
 
 func pickLocalAddr(laddrs []ma.Multiaddr, raddr ma.Multiaddr) (laddr ma.Multiaddr) {
