@@ -7,8 +7,8 @@ import (
 
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
-	transport "github.com/ipfs/go-libp2p-transport"
 	ma "github.com/jbenet/go-multiaddr"
+	transport "github.com/libp2p/go-libp2p-transport"
 	filter "github.com/libp2p/go-libp2p/p2p/net/filter"
 )
 

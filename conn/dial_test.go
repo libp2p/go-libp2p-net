@@ -13,8 +13,9 @@ import (
 
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
-	transport "github.com/ipfs/go-libp2p-transport"
+	transport "github.com/libp2p/go-libp2p-transport"
 	tu "github.com/libp2p/go-libp2p/testutil"
+	tcpt "github.com/libp2p/go-tcp-transport"
 
 	ma "github.com/jbenet/go-multiaddr"
 	msmux "github.com/whyrusleeping/go-multistream"
@@ -63,7 +64,7 @@ func setupSingleConn(t *testing.T, ctx context.Context) (a, b Conn, p1, p2 tu.Pe
 }
 
 func Listen(ctx context.Context, addr ma.Multiaddr, local peer.ID, sk ic.PrivKey) (Listener, error) {
-	list, err := transport.NewTCPTransport().Listen(addr)
+	list, err := tcpt.NewTCPTransport().Listen(addr)
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +73,7 @@ func Listen(ctx context.Context, addr ma.Multiaddr, local peer.ID, sk ic.PrivKey
 }
 
 func dialer(t *testing.T, a ma.Multiaddr) transport.Dialer {
-	tpt := transport.NewTCPTransport()
+	tpt := tcpt.NewTCPTransport()
 	tptd, err := tpt.Dialer(a)
 	if err != nil {
 		t.Fatal(err)
