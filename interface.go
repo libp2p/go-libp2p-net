@@ -1,6 +1,7 @@
 package net
 
 import (
+	"context"
 	"io"
 
 	peer "github.com/ipfs/go-libp2p-peer"
@@ -9,7 +10,6 @@ import (
 	"github.com/jbenet/goprocess"
 	conn "github.com/libp2p/go-libp2p/p2p/net/conn"
 	protocol "github.com/libp2p/go-libp2p/p2p/protocol"
-	context "golang.org/x/net/context"
 )
 
 // MessageSizeMax is a soft (recommended) maximum for network messages.

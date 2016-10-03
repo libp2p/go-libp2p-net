@@ -1,6 +1,7 @@
 package conn
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"net"
@@ -16,7 +17,6 @@ import (
 	transport "github.com/libp2p/go-libp2p-transport"
 	filter "github.com/libp2p/go-libp2p/p2p/net/filter"
 	msmux "github.com/whyrusleeping/go-multistream"
-	context "golang.org/x/net/context"
 )
 
 const (

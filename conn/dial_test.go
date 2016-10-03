@@ -17,10 +17,10 @@ import (
 	tu "github.com/libp2p/go-libp2p/testutil"
 	tcpt "github.com/libp2p/go-tcp-transport"
 
+	"context"
 	ma "github.com/jbenet/go-multiaddr"
 	msmux "github.com/whyrusleeping/go-multistream"
 	grc "github.com/whyrusleeping/gorocheck"
-	context "golang.org/x/net/context"
 )
 
 func goroFilter(r *grc.Goroutine) bool {

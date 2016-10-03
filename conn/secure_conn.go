@@ -1,6 +1,7 @@
 package conn
 
 import (
+	"context"
 	"errors"
 	"net"
 	"time"
@@ -9,7 +10,6 @@ import (
 	peer "github.com/ipfs/go-libp2p-peer"
 	secio "github.com/ipfs/go-libp2p-secio"
 	ma "github.com/jbenet/go-multiaddr"
-	context "golang.org/x/net/context"
 )
 
 // secureConn wraps another Conn object with an encrypted channel.

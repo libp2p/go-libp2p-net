@@ -11,13 +11,13 @@ import (
 	p2putil "github.com/libp2p/go-libp2p/p2p/test/util"
 	testutil "github.com/libp2p/go-libp2p/testutil"
 
+	"context"
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
 	pstore "github.com/ipfs/go-libp2p-peerstore"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
 	goprocessctx "github.com/jbenet/goprocess/context"
-	context "golang.org/x/net/context"
 )
 
 // mocknet implements mocknet.Mocknet

@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
+	"context"
 	msgio "github.com/jbenet/go-msgio"
 	travis "github.com/libp2p/go-libp2p/testutil/ci/travis"
-	context "golang.org/x/net/context"
 )
 
 func msgioWrap(c Conn) msgio.ReadWriter {

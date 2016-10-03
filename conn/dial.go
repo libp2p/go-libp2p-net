@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 
+	"context"
 	ci "github.com/ipfs/go-libp2p-crypto"
 	lgbl "github.com/ipfs/go-libp2p-loggables"
 	peer "github.com/ipfs/go-libp2p-peer"
@@ -14,7 +15,6 @@ import (
 	transport "github.com/libp2p/go-libp2p-transport"
 	addrutil "github.com/libp2p/go-libp2p/p2p/net/swarm/addr"
 	msmux "github.com/whyrusleeping/go-multistream"
-	context "golang.org/x/net/context"
 )
 
 type WrapFunc func(transport.Conn) transport.Conn

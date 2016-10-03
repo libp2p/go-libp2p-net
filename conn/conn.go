@@ -1,6 +1,7 @@
 package conn
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"net"
@@ -14,7 +15,6 @@ import (
 	mpool "github.com/jbenet/go-msgio/mpool"
 	ma "github.com/jbenet/go-multiaddr"
 	manet "github.com/jbenet/go-multiaddr-net"
-	context "golang.org/x/net/context"
 )
 
 var log = logging.Logger("conn")
