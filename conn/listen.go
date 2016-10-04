@@ -15,7 +15,7 @@ import (
 	"github.com/jbenet/goprocess"
 	goprocessctx "github.com/jbenet/goprocess/context"
 	transport "github.com/libp2p/go-libp2p-transport"
-	filter "github.com/libp2p/go-libp2p/p2p/net/filter"
+	filter "github.com/libp2p/go-maddr-filter"
 	msmux "github.com/whyrusleeping/go-multistream"
 )
 

@@ -9,7 +9,7 @@ import (
 	peer "github.com/ipfs/go-libp2p-peer"
 	ma "github.com/jbenet/go-multiaddr"
 	transport "github.com/libp2p/go-libp2p-transport"
-	filter "github.com/libp2p/go-libp2p/p2p/net/filter"
+	filter "github.com/libp2p/go-maddr-filter"
 )
 
 type PeerConn interface {
