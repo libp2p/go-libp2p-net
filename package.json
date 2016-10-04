@@ -21,8 +21,14 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmTaW4q1AbqMkpfDLUYzW18nW62GsrnFvtVcvR1pnaURm6",
-      "name": "go-libp2p-conn",
+      "hash": "QmRxzoGdQaN6HYyqWnT82NnLLHBAZbTUvxPEfTBTjU7KCn",
+      "name": "go-libp2p-interface-conn",
+      "version": "0.1.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmSF8fPo3jgVBAy8fpdjjYqgG87dkJgUprRBHRd2tmfgpP",
+      "name": "goprocess",
       "version": "1.0.0"
     }
   ],
@@ -30,6 +36,7 @@
   "language": "go",
   "license": "",
   "name": "go-libp2p-net",
-  "version": "1.0.0"
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "version": "1.1.0"
 }
 

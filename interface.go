@@ -8,7 +8,7 @@ import (
 	pstore "github.com/ipfs/go-libp2p-peerstore"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
-	conn "github.com/libp2p/go-libp2p-conn"
+	iconn "github.com/libp2p/go-libp2p-interface-conn"
 	protocol "github.com/libp2p/go-libp2p-protocol"
 )
 
@@ -43,7 +43,7 @@ type StreamHandler func(Stream)
 // be useful to get information about the peer on the other side:
 //  stream.Conn().RemotePeer()
 type Conn interface {
-	conn.PeerConn
+	iconn.PeerConn
 
 	// NewStream constructs a new Stream over this conn.
 	NewStream() (Stream, error)
