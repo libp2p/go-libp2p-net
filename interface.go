@@ -8,8 +8,8 @@ import (
 	pstore "github.com/ipfs/go-libp2p-peerstore"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
+	conn "github.com/libp2p/go-libp2p-conn"
 	protocol "github.com/libp2p/go-libp2p-protocol"
-	conn "github.com/libp2p/go-libp2p/p2p/net/conn"
 )
 
 // MessageSizeMax is a soft (recommended) maximum for network messages.

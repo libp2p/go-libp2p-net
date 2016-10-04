@@ -2,6 +2,7 @@ package mocknet
 
 import (
 	"bytes"
+	"context"
 	"io"
 	"math"
 	"math/rand"
@@ -9,13 +10,12 @@ import (
 	"testing"
 	"time"
 
-	peer "github.com/ipfs/go-libp2p-peer"
-	protocol "github.com/libp2p/go-libp2p-protocol"
 	inet "github.com/libp2p/go-libp2p/p2p/net"
-	testutil "github.com/libp2p/go-libp2p/testutil"
 
-	"context"
+	peer "github.com/ipfs/go-libp2p-peer"
 	detectrace "github.com/jbenet/go-detect-race"
+	protocol "github.com/libp2p/go-libp2p-protocol"
+	testutil "github.com/libp2p/go-testutil"
 )
 
 func randPeer(t *testing.T) peer.ID {

@@ -1,6 +1,7 @@
 package mocknet
 
 import (
+	"context"
 	"fmt"
 	"sort"
 	"sync"
@@ -9,15 +10,14 @@ import (
 	bhost "github.com/libp2p/go-libp2p/p2p/host/basic"
 	inet "github.com/libp2p/go-libp2p/p2p/net"
 	p2putil "github.com/libp2p/go-libp2p/p2p/test/util"
-	testutil "github.com/libp2p/go-libp2p/testutil"
 
-	"context"
 	ic "github.com/ipfs/go-libp2p-crypto"
 	peer "github.com/ipfs/go-libp2p-peer"
 	pstore "github.com/ipfs/go-libp2p-peerstore"
 	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
 	goprocessctx "github.com/jbenet/goprocess/context"
+	testutil "github.com/libp2p/go-testutil"
 )
 
 // mocknet implements mocknet.Mocknet
