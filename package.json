@@ -1,0 +1,35 @@
+{
+  "author": "whyrusleeping",
+  "bugs": {
+    "url": "https://github.com/libp2p/go-libp2p-net"
+  },
+  "gx": {
+    "dvcsimport": "github.com/libp2p/go-libp2p-net"
+  },
+  "gxDependencies": [
+    {
+      "author": "whyrusleeping",
+      "hash": "QmZNkThpqfVXs9GNbexPrfBbXSLNYeKrE7jwFM2oqHbyqN",
+      "name": "go-libp2p-protocol",
+      "version": "1.0.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmYkwVGkwoPbMVQEbf6LonZg4SsCxGP3H7PBEtdNCNRyxD",
+      "name": "go-libp2p-peerstore",
+      "version": "1.2.5"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmTaW4q1AbqMkpfDLUYzW18nW62GsrnFvtVcvR1pnaURm6",
+      "name": "go-libp2p-conn",
+      "version": "1.0.0"
+    }
+  ],
+  "gxVersion": "0.9.1",
+  "language": "go",
+  "license": "",
+  "name": "go-libp2p-net",
+  "version": "0.0.0"
+}
+
