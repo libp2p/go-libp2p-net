@@ -21,9 +21,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmTuHFRFewySPyhMg4pai67JDrtMJkNVqKmBbnu18qZws6",
+      "hash": "QmNxScD426NivSWRNJdLVfXLrzVdtNWxW74EnXAWJvgGwh",
       "name": "go-libp2p-interface-conn",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "author": "whyrusleeping",
@@ -37,6 +37,6 @@
   "license": "",
   "name": "go-libp2p-net",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
 
