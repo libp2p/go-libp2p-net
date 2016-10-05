@@ -4,12 +4,12 @@ import (
 	"context"
 	"io"
 
-	peer "github.com/ipfs/go-libp2p-peer"
-	pstore "github.com/ipfs/go-libp2p-peerstore"
-	ma "github.com/jbenet/go-multiaddr"
 	"github.com/jbenet/goprocess"
 	iconn "github.com/libp2p/go-libp2p-interface-conn"
+	peer "github.com/libp2p/go-libp2p-peer"
+	pstore "github.com/libp2p/go-libp2p-peerstore"
 	protocol "github.com/libp2p/go-libp2p-protocol"
+	ma "github.com/multiformats/go-multiaddr"
 )
 
 // MessageSizeMax is a soft (recommended) maximum for network messages.
