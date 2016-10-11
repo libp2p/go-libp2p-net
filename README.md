@@ -30,7 +30,7 @@ go get libp2p/go-libp2p-net
 
 ## Contribute
 
-Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/go-libp2p-crypto/issues)!
+Feel free to join in. All welcome. Open an [issue](https://github.com/ipfs/go-libp2p-net/issues)!
 
 Check out our [contributing document](https://github.com/libp2p/community/blob/master/CONTRIBUTE.md) for more information on how we work, and about contributing in general. Please be aware that all interactions related to libp2p are subject to the IPFS [Code of Conduct](https://github.com/ipfs/community/blob/master/code-of-conduct.md).
 
