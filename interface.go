@@ -47,6 +47,9 @@ type Conn interface {
 
 	// NewStream constructs a new Stream over this conn.
 	NewStream() (Stream, error)
+
+	// GetStreams returns all open streams over this conn.
+	GetStreams() ([]Stream, error)
 }
 
 // ConnHandler is the type of function used to listen for
