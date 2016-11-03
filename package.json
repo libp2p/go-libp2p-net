@@ -21,9 +21,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmNxScD426NivSWRNJdLVfXLrzVdtNWxW74EnXAWJvgGwh",
+      "hash": "QmetrDwj2mPNsrQPhL7yg7NEkwr3EvN21Uy5sZvpbS44q2",
       "name": "go-libp2p-interface-conn",
-      "version": "0.1.2"
+      "version": "0.3.0"
     },
     {
       "author": "whyrusleeping",
