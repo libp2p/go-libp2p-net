@@ -3,6 +3,7 @@ package net
 import (
 	"context"
 	"io"
+	"time"
 
 	"github.com/jbenet/goprocess"
 	iconn "github.com/libp2p/go-libp2p-interface-conn"
@@ -26,6 +27,10 @@ type Stream interface {
 	io.Reader
 	io.Writer
 	io.Closer
+
+	SetDeadline(t time.Time) error
+	SetReadDeadline(t time.Time) error
+	SetWriteDeadline(t time.Time) error
 
 	Protocol() protocol.ID
 	SetProtocol(protocol.ID)
