@@ -15,7 +15,7 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmTpGyRPVr6w7d7acfCb8SY15gy7KPBb47mHtisTu4sn68",
+      "hash": "QmQMQ2RUjnaEEX8ybmrhuFFGhAwPjyL1Eo6ZoJGD7aAccM",
       "name": "go-libp2p-peerstore",
       "version": "1.4.0"
     },
@@ -37,6 +37,6 @@
   "license": "",
   "name": "go-libp2p-net",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "1.6.4"
+  "version": "1.6.5"
 }
 
