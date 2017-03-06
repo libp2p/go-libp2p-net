@@ -15,13 +15,13 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmQMQ2RUjnaEEX8ybmrhuFFGhAwPjyL1Eo6ZoJGD7aAccM",
+      "hash": "Qme1g4e3m2SmdiSGGU3vSWmUStwUjc5oECnEriaK9Xa1HU",
       "name": "go-libp2p-peerstore",
       "version": "1.4.0"
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmcYnysCkyGezY6k6MQ1yHHdrRiZaU9x3M9Y1tE9qZ5hD2",
+      "hash": "QmT6jBTqNKhhb8dbzCEMUNkGhm3RuRActcMhpShAHLpQtp",
       "name": "go-libp2p-interface-conn",
       "version": "0.4.0"
     },
@@ -37,6 +37,6 @@
   "license": "",
   "name": "go-libp2p-net",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "1.6.6"
+  "version": "1.6.7"
 }
 
