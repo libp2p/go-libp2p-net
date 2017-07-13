@@ -18,9 +18,7 @@ The IPFS Network package handles all of the peer-to-peer networking. It connects
 
 It looks a bit like this:
 
-<center>
-![](https://docs.google.com/drawings/d/1FvU7GImRsb9GvAWDDo1le85jIrnFJNVB_OTPXC15WwM/pub?h=480)
-</center>
+[![](https://docs.google.com/drawings/d/1FvU7GImRsb9GvAWDDo1le85jIrnFJNVB_OTPXC15WwM/pub?h=480)]
 
 ## Install
 
