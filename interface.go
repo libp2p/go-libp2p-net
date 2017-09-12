@@ -3,13 +3,13 @@ package net
 import (
 	"context"
 	"io"
-	"time"
 
 	"github.com/jbenet/goprocess"
 	iconn "github.com/libp2p/go-libp2p-interface-conn"
 	peer "github.com/libp2p/go-libp2p-peer"
 	pstore "github.com/libp2p/go-libp2p-peerstore"
 	protocol "github.com/libp2p/go-libp2p-protocol"
+	smux "github.com/libp2p/go-stream-muxer"
 	ma "github.com/multiformats/go-multiaddr"
 )
 
@@ -22,15 +22,9 @@ const MessageSizeMax = 2 << 22 // 4MB
 // Stream represents a bidirectional channel between two agents in
 // the IPFS network. "agent" is as granular as desired, potentially
 // being a "request -> reply" pair, or whole protocols.
-// Streams are backed by SPDY streams underneath the hood.
+// Streams are backed by stream-muxer streams underneath the hood.
 type Stream interface {
-	io.Reader
-	io.Writer
-	io.Closer
-
-	SetDeadline(t time.Time) error
-	SetReadDeadline(t time.Time) error
-	SetWriteDeadline(t time.Time) error
+	smux.Stream
 
 	Protocol() protocol.ID
 	SetProtocol(protocol.ID)
