@@ -12,7 +12,7 @@ The IPFS Network package handles all of the peer-to-peer networking. It connects
   - `MultiConn` - a set of connections to a single Peer
   - `SecureConn` - an encrypted (tls-like) connection
 - `Swarm` - holds connections to Peers, multiplexes from/to each `MultiConn`
-- `Muxer` - multiplexes between `Services` and `Swarm`. Handles `Requet/Reply`.
+- `Muxer` - multiplexes between `Services` and `Swarm`. Handles `Request/Reply`.
   - `Service` - connects between an outside client service and Network.
   - `Handler` - the client service part that handles requests
 
