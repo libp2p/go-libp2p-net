@@ -17,7 +17,7 @@ import (
 // One can write more, as the interface is a stream. But it is useful
 // to bunch it up into multiple read/writes when the whole message is
 // a single, large serialized object.
-const MessageSizeMax = 2 << 22 // 4MB
+const MessageSizeMax = 1 << 22 // 4 MB
 
 // Stream represents a bidirectional channel between two agents in
 // the IPFS network. "agent" is as granular as desired, potentially
