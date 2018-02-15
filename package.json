@@ -21,12 +21,6 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmYDNqBAMWVMHKndYR35Sd8PfEVWBiDmpHYkuRJTunJDeJ",
-      "name": "go-libp2p-interface-conn",
-      "version": "0.4.13"
-    },
-    {
-      "author": "whyrusleeping",
       "hash": "QmSF8fPo3jgVBAy8fpdjjYqgG87dkJgUprRBHRd2tmfgpP",
       "name": "goprocess",
       "version": "1.0.0"
@@ -48,6 +42,12 @@
       "hash": "QmY9JXR3FupnYAYJWK9aMr9bCpqWKcToQ1tz8DVGTrHpHw",
       "name": "go-stream-muxer",
       "version": "3.0.0"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "Qme1knMqwt1hKZbc1BmQFmnm9f36nyQGwXxPGVpVJ9rMK5",
+      "name": "go-libp2p-crypto",
+      "version": "1.6.2"
     }
   ],
   "gxVersion": "0.9.1",
