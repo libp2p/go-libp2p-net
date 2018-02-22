@@ -4,6 +4,9 @@ import (
 	ma "github.com/multiformats/go-multiaddr"
 )
 
+// NotifyBundle implements Notifiee by calling any of the functions set on it,
+// and nop'ing if they are unset. This is the easy way to register for
+// notifications.
 type NotifyBundle struct {
 	ListenF      func(Network, ma.Multiaddr)
 	ListenCloseF func(Network, ma.Multiaddr)
