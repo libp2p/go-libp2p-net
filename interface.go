@@ -29,6 +29,7 @@ type Stream interface {
 	Protocol() protocol.ID
 	SetProtocol(protocol.ID)
 
+	// Stat returns metadata pertaining to this stream.
 	Stat() Stat
 
 	// Conn returns the connection this stream is part of.
@@ -47,7 +48,7 @@ const (
 	DirOutbound
 )
 
-// StreamInfo stores metadata pertaining to a given Stream.
+// Stat stores metadata pertaining to a given Stream/Conn.
 type Stat struct {
 	Direction Direction
 	Extra     map[interface{}]interface{}
@@ -100,6 +101,9 @@ type Conn interface {
 
 	// GetStreams returns all open streams over this conn.
 	GetStreams() []Stream
+
+	// Stat stores metadata pertaining to this conn.
+	Stat() Stat
 }
 
 // ConnHandler is the type of function used to listen for
