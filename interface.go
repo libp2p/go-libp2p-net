@@ -29,8 +29,28 @@ type Stream interface {
 	Protocol() protocol.ID
 	SetProtocol(protocol.ID)
 
+	Stat() Stat
+
 	// Conn returns the connection this stream is part of.
 	Conn() Conn
+}
+
+// Direction represents which peer in a stream initiated a connection.
+type Direction int
+
+const (
+	// DirUnknown is the default direction.
+	DirUnknown Direction = iota
+	// DirInbound is for when the remote peer initiated a connection.
+	DirInbound
+	// DirOutbound is for when the local peer initiated a connection.
+	DirOutbound
+)
+
+// StreamInfo stores metadata pertaining to a given Stream.
+type Stat struct {
+	Direction Direction
+	Extra     map[interface{}]interface{}
 }
 
 // StreamHandler is the type of function used to listen for
