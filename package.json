@@ -15,9 +15,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmYrNDh2z1sFB7gxYU6kX2f9N8LcWJkAzAKwZqUzvf6d1P",
+      "hash": "QmUymf8fJtideyv3z727BcZUifGBjMZMpCJqu3Gxk5aRUk",
       "name": "go-libp2p-peerstore",
-      "version": "2.0.9"
+      "version": "2.0.10"
     },
     {
       "author": "whyrusleeping",
@@ -33,9 +33,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "Qme2jJHLnAfULnkrSxmqAn7pGTp3HWVmFYLnuLtxFvH9nA",
+      "hash": "QmcqU6QUDSXprb1518vYDGczrTJTyGwLG9eUa5iNX4xUtS",
       "name": "go-libp2p-peer",
-      "version": "2.4.2"
+      "version": "2.4.3"
     },
     {
       "author": "whyrusleeping",
@@ -45,9 +45,9 @@
     },
     {
       "author": "whyrusleeping",
-      "hash": "QmcgyFuP2SVMhgkTjFaXwnyAi9Fheg6A7SWgpYJKuajPnK",
+      "hash": "QmNiJiXwWE3kRhZrC5ej3kSjWHm337pYfhjLGSCDNKJP2s",
       "name": "go-libp2p-crypto",
-      "version": "2.0.3"
+      "version": "2.0.4"
     }
   ],
   "gxVersion": "0.9.1",
@@ -55,6 +55,6 @@
   "license": "",
   "name": "go-libp2p-net",
   "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
-  "version": "3.0.18"
+  "version": "3.0.19"
 }
 
