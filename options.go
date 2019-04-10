@@ -6,11 +6,20 @@ import (
 
 type noDialCtxKey struct{}
 
-// NoDial is a context option that instructs the network to not attempt a new
-// dial when opening a stream. The value of the key should be a string indicating
-// the source of the option.
-var NoDial = noDialCtxKey{}
+var noDial = noDialCtxKey{}
 
-func WithNoDial(ctx context.Context, src string) {
-	context.WithValue(ctx, NoDial, src)
+// WithNoDial constructs a new context with an option that instructs the network
+// to not attempt a new dial when opening a stream.
+func WithNoDial(ctx context.Context, reason string) {
+	context.WithValue(ctx, noDial, reason)
+}
+
+// GetNoDial returns true if the no dial option is set in the context.
+func GetNoDial(ctx context.Context) (nodial bool, reason string) {
+	v := ctx.Value(noDial)
+	if v != nil {
+		return true, v.(string)
+	}
+
+	return false, ""
 }
