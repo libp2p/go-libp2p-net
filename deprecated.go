@@ -1,6 +1,9 @@
 package net
 
 import (
+	"context"
+	"time"
+
 	"github.com/libp2p/go-libp2p-core/helpers"
 	moved "github.com/libp2p/go-libp2p-core/network"
 )
@@ -77,10 +80,14 @@ type Notifiee = moved.Notifiee
 type NotifyBundle = moved.NotifyBundle
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.WithNoDial instead.
-var WithNoDial = moved.WithNoDial
+func WithNoDial(ctx context.Context, reason string) context.Context {
+	return moved.WithNoDial(ctx, reason)
+}
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.GetNoDial instead.
-var GetNoDial = moved.GetNoDial
+func GetNoDial(ctx context.Context) (nodial bool, reason string) {
+	return moved.GetNoDial(ctx)
+}
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.EOFTimeout instead.
 var EOFTimeout = helpers.EOFTimeout
@@ -89,16 +96,26 @@ var EOFTimeout = helpers.EOFTimeout
 var ErrExpectedEOF = helpers.ErrExpectedEOF
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.FullClose instead.
-var FullClose = helpers.FullClose
+func FullClose(s moved.Stream) error {
+	return helpers.FullClose(s)
+}
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.AwaitEOF instead.
-var AwaitEOF = helpers.AwaitEOF
+func AwaitEOF(s moved.Stream) error {
+	return helpers.AwaitEOF(s)
+}
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.DialPeerTimeout instead.
+// Warning: this variable's type makes it impossible to alias by reference. Reads and writes
+// from/to this variable may be inaccurate or not have the intended effect.
 var DialPeerTimeout = moved.DialPeerTimeout
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.GetDialPeerTimeout instead.
-var GetDialPeerTimeout = moved.GetDialPeerTimeout
+func GetDialPeerTimeout(ctx context.Context) time.Duration {
+	return moved.GetDialPeerTimeout(ctx)
+}
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.WithDialPeerTimeout instead.
-var WithDialPeerTimeout = moved.WithDialPeerTimeout
+func WithDialPeerTimeout(ctx context.Context, timeout time.Duration) context.Context {
+	return moved.WithDialPeerTimeout(ctx, timeout)
+}
