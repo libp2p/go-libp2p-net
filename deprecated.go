@@ -5,88 +5,88 @@ import (
 	"time"
 
 	"github.com/libp2p/go-libp2p-core/helpers"
-	moved "github.com/libp2p/go-libp2p-core/network"
+	core "github.com/libp2p/go-libp2p-core/network"
 )
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.MessageSizeMax instead.
-const MessageSizeMax = moved.MessageSizeMax
+const MessageSizeMax = core.MessageSizeMax
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Stream instead.
-type Stream = moved.Stream
+type Stream = core.Stream
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Direction instead.
-type Direction = moved.Direction
+type Direction = core.Direction
 
 const (
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.DirectionUnknown instead.
-	DirUnknown = moved.DirUnknown
+	DirUnknown = core.DirUnknown
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.DirInbound instead.
-	DirInbound = moved.DirInbound
+	DirInbound = core.DirInbound
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.DirOutbound instead.
-	DirOutbound = moved.DirOutbound
+	DirOutbound = core.DirOutbound
 )
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Stat instead.
-type Stat = moved.Stat
+type Stat = core.Stat
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.StreamHandler instead.
-type StreamHandler = moved.StreamHandler
+type StreamHandler = core.StreamHandler
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.ConnSecurity instead.
-type ConnSecurity = moved.ConnSecurity
+type ConnSecurity = core.ConnSecurity
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.ConnMultiaddrs instead.
-type ConnMultiaddrs = moved.ConnMultiaddrs
+type ConnMultiaddrs = core.ConnMultiaddrs
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Conn instead.
-type Conn = moved.Conn
+type Conn = core.Conn
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.ConnHandler instead.
-type ConnHandler = moved.ConnHandler
+type ConnHandler = core.ConnHandler
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Network instead.
-type Network = moved.Network
+type Network = core.Network
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.ErrNoRemoteAddrs instead.
-var ErrNoRemoteAddrs = moved.ErrNoRemoteAddrs
+var ErrNoRemoteAddrs = core.ErrNoRemoteAddrs
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.ErrNoConn instead.
-var ErrNoConn = moved.ErrNoConn
+var ErrNoConn = core.ErrNoConn
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Dialer instead.
-type Dialer = moved.Dialer
+type Dialer = core.Dialer
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Connectedness instead.
-type Connectedness = moved.Connectedness
+type Connectedness = core.Connectedness
 
 const (
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.NotConnected instead.
-	NotConnected = moved.NotConnected
+	NotConnected = core.NotConnected
 
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.Connected instead.
-	Connected = moved.Connected
+	Connected = core.Connected
 
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.CanConnect instead.
-	CanConnect = moved.CanConnect
+	CanConnect = core.CanConnect
 
 	// Deprecated: use github.com/libp2p/go-libp2p-core/network.CannotConnect instead.
-	CannotConnect = moved.CannotConnect
+	CannotConnect = core.CannotConnect
 )
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.Notifiee instead.
-type Notifiee = moved.Notifiee
+type Notifiee = core.Notifiee
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.NotifyBundle instead.
-type NotifyBundle = moved.NotifyBundle
+type NotifyBundle = core.NotifyBundle
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.WithNoDial instead.
 func WithNoDial(ctx context.Context, reason string) context.Context {
-	return moved.WithNoDial(ctx, reason)
+	return core.WithNoDial(ctx, reason)
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.GetNoDial instead.
 func GetNoDial(ctx context.Context) (nodial bool, reason string) {
-	return moved.GetNoDial(ctx)
+	return core.GetNoDial(ctx)
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.EOFTimeout instead.
@@ -96,26 +96,26 @@ var EOFTimeout = helpers.EOFTimeout
 var ErrExpectedEOF = helpers.ErrExpectedEOF
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.FullClose instead.
-func FullClose(s moved.Stream) error {
+func FullClose(s core.Stream) error {
 	return helpers.FullClose(s)
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/helpers.AwaitEOF instead.
-func AwaitEOF(s moved.Stream) error {
+func AwaitEOF(s core.Stream) error {
 	return helpers.AwaitEOF(s)
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.DialPeerTimeout instead.
 // Warning: this variable's type makes it impossible to alias by reference. Reads and writes
 // from/to this variable may be inaccurate or not have the intended effect.
-var DialPeerTimeout = moved.DialPeerTimeout
+var DialPeerTimeout = core.DialPeerTimeout
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.GetDialPeerTimeout instead.
 func GetDialPeerTimeout(ctx context.Context) time.Duration {
-	return moved.GetDialPeerTimeout(ctx)
+	return core.GetDialPeerTimeout(ctx)
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.WithDialPeerTimeout instead.
 func WithDialPeerTimeout(ctx context.Context, timeout time.Duration) context.Context {
-	return moved.WithDialPeerTimeout(ctx, timeout)
+	return core.WithDialPeerTimeout(ctx, timeout)
 }
