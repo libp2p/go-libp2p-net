@@ -1,3 +1,4 @@
+// Deprecated: use github.com/libp2p/go-libp2p-core/network instead.
 package net
 
 import (
@@ -106,9 +107,9 @@ func AwaitEOF(s core.Stream) error {
 }
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.DialPeerTimeout instead.
-// Warning: this variable's type makes it impossible to alias by reference. Reads and writes
-// from/to this variable may be inaccurate or not have the intended effect.
-var DialPeerTimeout = core.DialPeerTimeout
+// Warning: it's impossible to alias a var in go. Writes to this var would have no longer
+// have any effect, so it has been commented out to induce breakage for added safety.
+// var DialPeerTimeout = core.DialPeerTimeout
 
 // Deprecated: use github.com/libp2p/go-libp2p-core/network.GetDialPeerTimeout instead.
 func GetDialPeerTimeout(ctx context.Context) time.Duration {
